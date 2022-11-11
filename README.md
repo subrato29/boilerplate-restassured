@@ -1,4 +1,4 @@
-## spotify-api-automation
+## boilerplate-restassured
 
 - Automation tool used: Rest-Assured
 
