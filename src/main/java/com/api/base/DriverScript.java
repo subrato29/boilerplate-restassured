@@ -3,6 +3,8 @@ package com.api.base;
 import java.io.File;
 import java.io.IOException;
 import java.util.TreeMap;
+
+import org.junit.Before;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
@@ -24,9 +26,12 @@ public class DriverScript {
 	public static String testCaseId, testType;
 	public static boolean continueRun = false;
 	public static String endpoint = null;
-	public static final String BASE_URL = CommonUtils.getProperty("baseURL");
+	public static final String BASE_URL = CommonUtils.getProperty("BASE_URL");
 
-	static TreeMap < Integer, String > executableTCIndex = new TreeMap < Integer, String > ();
+	/**
+	 *
+	 * @return
+	 */
 	public static int getRowNumForExecutableTestCases() {
 		while (rowNumExecutableTC <= xlsController.getRowCount(Constants.TEST_DATA)) {
 			if (xlsController.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_RUNMODE, rowNumExecutableTC).toUpperCase().equals(Constants.TEST_CASE_RUNMODE_YES)) {
@@ -38,6 +43,11 @@ public class DriverScript {
 		return count;
 	}
 
+	/**
+	 *
+	 * @param tcId
+	 * @return
+	 */
 	public static boolean isTestCaseRunnable(String tcId) {
 		boolean isTestCaseRunnable = false;
 		continueRun = false;
