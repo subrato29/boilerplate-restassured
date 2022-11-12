@@ -1,10 +1,6 @@
 package com.api.base;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.TreeMap;
-
-import org.junit.Before;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
@@ -23,7 +19,7 @@ public class DriverScript {
 	public static int rowNumExecutableTC = 2;
 	public static int count = 0;
 	public static String testCaseName;
-	public static String testCaseId, testType;
+	public static String testCaseId;
 	public static boolean continueRun = false;
 	public static String endpoint = null;
 	public static final String BASE_URL = CommonUtils.getProperty("BASE_URL");
@@ -55,12 +51,11 @@ public class DriverScript {
 		rowNum = rowNumController;
 		testCaseId = tcId;
 		testCaseName = xlsController.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_NAME, rowNum);
-		testType = xlsController.getCellData(Constants.TEST_DATA, "TestType", rowNum);
 		if (xlsController.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_RUNMODE, rowNum).equalsIgnoreCase(Constants.TEST_CASE_RUNMODE_YES)) {
 			endpoint = null;
 			continueRun = true;
 			xls = new Xls_Reader(TEST_DATA_PATH + Constants.FILE_SEPARATOR_KEY + "api_data.xlsx");
-			endpoint = BASE_URL + xls.getCellData(Constants.TEST_DATA, "Endpoint", rowNum);
+			endpoint = BASE_URL + xls.getCellData(Constants.TEST_DATA, Constants.ENDPOINT, rowNum);
 			isTestCaseRunnable = true;
 			System.out.println("Test scenario started:==== " + testCaseId);
 		} else {

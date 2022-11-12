@@ -11,15 +11,21 @@ public class HttpUtils extends AuthFactory {
 
 	/**
 	 *
-	 * @param URI
+	 * @param endpoint
 	 * @return
 	 */
-	public static Response get(String URI) {
-		RequestSpecification request = RestAssured.given();
-		Response response = request
-				.header("Authorization", "Bearer " + BEARER_TOKEN)
-				.get(URI);
-		return response;
+	public static Response get(String endpoint) {
+		try {
+			RequestSpecification request = RestAssured.given();
+			Response response = request
+					.header("Authorization", "Bearer " + BEARER_TOKEN)
+					.get(endpoint);
+			return response;
+		} catch (Throwable t) {
+			ReportUtil.markFailed("GET method is failed for the testCaseID: " + testCaseId);
+			t.printStackTrace();
+			return null;
+		}
 	}
 
 	/**
@@ -48,7 +54,7 @@ public class HttpUtils extends AuthFactory {
 					.post(endpoint);
 			return response;
 		} catch (Throwable t) {
-			ReportUtil.markFailed("POST method is failed");
+			ReportUtil.markFailed("POST method is failed for the testCaseID: " + testCaseId);
 			t.printStackTrace();
 			return null;
 		}
@@ -71,7 +77,28 @@ public class HttpUtils extends AuthFactory {
 					.put(endpoint);
 			return response;
 		} catch (Throwable t) {
-			ReportUtil.markFailed("PUT command is failed");
+			ReportUtil.markFailed("PUT command is failed for the testCaseID: " + testCaseId);
+			t.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 *
+	 * @param endpoint
+	 * @return
+	 */
+	public static Response delete(String endpoint) {
+		try {
+			Response response = given()
+					.header("Authorization", "Bearer " + BEARER_TOKEN)
+					.accept("application/json")
+					.contentType("application/json")
+					.when()
+					.delete(endpoint);
+			return response;
+		} catch (Throwable t) {
+			ReportUtil.markFailed("DELETE command is failed for the testCaseID: " + testCaseId);
 			t.printStackTrace();
 			return null;
 		}
@@ -83,32 +110,20 @@ public class HttpUtils extends AuthFactory {
 	 * @param json
 	 * @return
 	 */
-	public static Response delete(String endpoint) {
-		RequestSpecification request = RestAssured.given();
-		Response response = request.get(endpoint);
-		response = given()
-				.header("Authorization", "Bearer " + BEARER_TOKEN)
-				.accept("application/json")
-				.contentType("application/json")
-				.when()
-				.delete(endpoint);
-		return response;
-	}
-
-	/**
-	 *
-	 * @param endpoint
-	 * @param json
-	 * @return
-	 */
 	public static Response patch(String endpoint, JSONObject json) {
-		Response response = given()
-				.header("Authorization", "Bearer " + BEARER_TOKEN)
-				.accept("application/json")
-				.contentType("application/json")
-				.body(json)
-				.when()
-				.patch(endpoint);
-		return response;
+		try {
+			Response response = given()
+					.header("Authorization", "Bearer " + BEARER_TOKEN)
+					.accept("application/json")
+					.contentType("application/json")
+					.body(json)
+					.when()
+					.patch(endpoint);
+			return response;
+		} catch (Throwable t) {
+			ReportUtil.markFailed("PATCH command is failed for the testCaseID: " + testCaseId);
+			t.printStackTrace();
+			return null;
+		}
 	}
 }
