@@ -22,7 +22,7 @@ public class HttpUtils extends AuthFactory {
 					.get(endpoint);
 			return response;
 		} catch (Throwable t) {
-			ReportUtil.markFailed("GET method is failed for the testCaseID: " + testCaseId);
+			ReportUtil.markFailed("GET command is failed for the testCaseID: " + testCaseId);
 			t.printStackTrace();
 			return null;
 		}
@@ -54,7 +54,7 @@ public class HttpUtils extends AuthFactory {
 					.post(endpoint);
 			return response;
 		} catch (Throwable t) {
-			ReportUtil.markFailed("POST method is failed for the testCaseID: " + testCaseId);
+			ReportUtil.markFailed("POST command is failed for the testCaseID: " + testCaseId);
 			t.printStackTrace();
 			return null;
 		}
