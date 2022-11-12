@@ -58,19 +58,33 @@ public class ApiUtils extends HttpUtils {
 	public static long getResponseTime (Response response) {
 		return response.getTime();
 	}
+
 	/**
 	 *
-	 * @param request_body
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public static JSONObject generateJsonRequestBody () {
+	public static JSONObject generateRequestBody () {
 		JSONObject json = new JSONObject();
 		String random = CommonUtils.getRandomString (6);
 		json.put("name", random);
 		json.put("gender", "male");
 		json.put("email", random + "@email.com");
 		json.put("status", "active");
+		return json;
+	}
+
+	/**
+	 *
+	 * @return
+	 */
+	public static JSONObject updateRequestBody (JSONObject requestBody) {
+		JSONObject json = new JSONObject();
+		requestBody.forEach((key, value) -> {
+			if (key.equals("name")) {
+				json.put(key, value + "_UPDATED");
+			}
+		});
 		return json;
 	}
 

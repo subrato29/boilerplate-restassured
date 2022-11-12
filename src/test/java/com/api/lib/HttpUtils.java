@@ -83,14 +83,13 @@ public class HttpUtils extends AuthFactory {
 	 * @param json
 	 * @return
 	 */
-	public static Response delete(String endpoint, JSONObject json) {
+	public static Response delete(String endpoint) {
 		RequestSpecification request = RestAssured.given();
 		Response response = request.get(endpoint);
 		response = given()
 				.header("Authorization", "Bearer " + BEARER_TOKEN)
 				.accept("application/json")
 				.contentType("application/json")
-				.body(json)
 				.when()
 				.delete(endpoint);
 		return response;
