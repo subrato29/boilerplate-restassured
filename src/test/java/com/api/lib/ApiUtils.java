@@ -64,31 +64,4 @@ public class ApiUtils extends HttpUtils {
 		});
 		return json;
 	}
-
-	/**
-	 *
-	 * @param request_body
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public static JSONObject parse_json_to_create_tracks_to_playlist(String request_body) {
-		JSONObject json = new JSONObject();
-		String[] array_uri = getSpotifyURI_ByTrackId(request_body);
-		json.put("uris", array_uri);
-		return json;
-	}
-
-	/**
-	 *
-	 * @param trackId
-	 * @return
-	 */
-	public static String[] getSpotifyURI_ByTrackId (String trackId) {
-		List<String> list = new ArrayList<String>();
-		String[] track = trackId.split(",");
-		for (int i = 0; i < track.length; i++) {
-			list.add("spotify:track:" + track[i].trim());
-		}
-		return list.toArray(new String[list.size()]);
-	}
 }

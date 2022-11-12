@@ -34,6 +34,7 @@ public class RequestChaining extends HttpUtils {
             }
         }
     }
+
     @Test (priority = 2)
     public void put() {
         String tcId = "TC001";
