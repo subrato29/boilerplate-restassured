@@ -12,7 +12,6 @@ import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
 public class RequestChaining extends HttpUtils {
-
     String email = "";
     String name = "";
     int id;
