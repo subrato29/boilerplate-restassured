@@ -12,12 +12,12 @@ public class Logging {
     }
 
     public static String debug(String console) {
-        logger.info(console);
+        logger.debug(console);
         return console;
     }
 
     public static String error(String console) {
-        logger.info(console);
+        logger.error(console);
         return console;
     }
 }
