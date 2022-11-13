@@ -4,20 +4,17 @@ import freemarker.log.Logger;
 
 public class Logging {
 
-    static Logger logger = Logger.getLogger("devpinoyLogger");
+    static Logger logger = Logger.getLogger("e2e-argos-test");
 
-    public static String info(String console) {
+    public static void info(String console) {
         logger.info(console);
-        return console;
     }
 
-    public static String debug(String console) {
+    public static void debug(String console) {
         logger.debug(console);
-        return console;
     }
 
-    public static String error(String console) {
+    public static void error(String console) {
         logger.error(console);
-        return console;
     }
 }
