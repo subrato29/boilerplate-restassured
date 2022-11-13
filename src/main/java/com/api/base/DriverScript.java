@@ -1,6 +1,8 @@
 package com.api.base;
 
 import java.io.IOException;
+
+import com.api.console.Logging;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
@@ -57,9 +59,9 @@ public class DriverScript {
 			xls = new Xls_Reader(TEST_DATA_PATH + Constants.FILE_SEPARATOR_KEY + "api_data.xlsx");
 			endpoint = BASE_URL + xls.getCellData(Constants.TEST_DATA, Constants.ENDPOINT, rowNum);
 			isTestCaseRunnable = true;
-			System.out.println("Test scenario started:==== " + testCaseId);
+			Logging.info("Test scenario started:==== " + testCaseId);
 		} else {
-			System.out.println("Please check the runmode of TestCaseID '" + testCaseId + "'");
+			Logging.info("Please check the runmode of TestCaseID '" + testCaseId + "'");
 			isTestCaseRunnable = false;
 		}
 		return isTestCaseRunnable;

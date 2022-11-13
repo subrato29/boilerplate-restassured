@@ -7,23 +7,12 @@
 package com.api.utilities;
 import java.io.FileInputStream;
 import com.api.reports.ExtentManager;
-import freemarker.log.Logger;
 
 import java.security.SecureRandom;
 import java.util.*;
 
 
 public class CommonUtils {
-	/**
-	 *
-	 * @param outputToBeLogged
-	 * @return
-	 */
-	public static String logging(String outputToBeLogged) {
-		Logger logger = Logger.getLogger("devpinoyLogger");
-		logger.debug(outputToBeLogged);
-		return outputToBeLogged;
-	}
 
 	/**
 	 *
