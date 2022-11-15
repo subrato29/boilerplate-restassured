@@ -28,4 +28,5 @@ public class Constants {
 	public static final String COUNT_KEY = "count" ;
 	public static final String ID_KEY = "id";
 	public static final String ENDPOINT = "Endpoint";
+	public static final String EXECUTION_REPORT_FILE_NAME = "Report";
 }

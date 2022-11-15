@@ -9,6 +9,8 @@ import io.restassured.specification.RequestSpecification;
 
 public class HttpUtils extends AuthFactory {
 
+	static final String APPLICATION_JSON_CONTENT_TYPE = "application/json";
+	static final String AUTHORIZATION = "Authorization";
 	/**
 	 *
 	 * @param endpoint
@@ -18,7 +20,7 @@ public class HttpUtils extends AuthFactory {
 		try {
 			RequestSpecification request = RestAssured.given();
 			Response response = request
-					.header("Authorization", "Bearer " + BEARER_TOKEN)
+					.header(AUTHORIZATION, "Bearer " + BEARER_TOKEN)
 					.get(endpoint);
 			return response;
 		} catch (Throwable t) {
@@ -34,7 +36,7 @@ public class HttpUtils extends AuthFactory {
 	 */
 	public static RequestSpecification request() {
 		RequestSpecification request = RestAssured.given();
-		return request.header("Authorization", "Bearer " + BEARER_TOKEN);
+		return request.header(AUTHORIZATION, "Bearer " + BEARER_TOKEN);
 	}
 
 	/**
@@ -46,9 +48,9 @@ public class HttpUtils extends AuthFactory {
 	public static Response post(String endpoint, JSONObject json) {
 		try {
 			Response response = given()
-					.header("Authorization", "Bearer " + BEARER_TOKEN)
-					.accept("application/json")
-					.contentType("application/json")
+					.header(AUTHORIZATION, "Bearer " + BEARER_TOKEN)
+					.accept(APPLICATION_JSON_CONTENT_TYPE)
+					.contentType(APPLICATION_JSON_CONTENT_TYPE)
 					.body(json)
 					.when()
 					.post(endpoint);
@@ -70,8 +72,8 @@ public class HttpUtils extends AuthFactory {
 		try {
 			Response response = given()
 					.header("Authorization", "Bearer " + BEARER_TOKEN)
-					.accept("application/json")
-					.contentType("application/json")
+					.accept(APPLICATION_JSON_CONTENT_TYPE)
+					.contentType(APPLICATION_JSON_CONTENT_TYPE)
 					.body(json)
 					.when()
 					.put(endpoint);
@@ -91,9 +93,9 @@ public class HttpUtils extends AuthFactory {
 	public static Response delete(String endpoint) {
 		try {
 			Response response = given()
-					.header("Authorization", "Bearer " + BEARER_TOKEN)
-					.accept("application/json")
-					.contentType("application/json")
+					.header(AUTHORIZATION, "Bearer " + BEARER_TOKEN)
+					.accept(APPLICATION_JSON_CONTENT_TYPE)
+					.contentType(APPLICATION_JSON_CONTENT_TYPE)
 					.when()
 					.delete(endpoint);
 			return response;
@@ -113,9 +115,9 @@ public class HttpUtils extends AuthFactory {
 	public static Response patch(String endpoint, JSONObject json) {
 		try {
 			Response response = given()
-					.header("Authorization", "Bearer " + BEARER_TOKEN)
-					.accept("application/json")
-					.contentType("application/json")
+					.header(AUTHORIZATION, "Bearer " + BEARER_TOKEN)
+					.accept(APPLICATION_JSON_CONTENT_TYPE)
+					.contentType(APPLICATION_JSON_CONTENT_TYPE)
 					.body(json)
 					.when()
 					.patch(endpoint);
