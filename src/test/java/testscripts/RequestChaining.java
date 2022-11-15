@@ -38,14 +38,13 @@ public class RequestChaining extends HttpUtils {
 
     @Test (priority = 2)
     public void put() {
-        String tcId = "TC001";
+        String tcId = "TC002";
         if (isRunnable(tcId)) {
             endpoint = endpoint + Constants.FRONT_SLASH + id;
             Response response = put(endpoint, ApiUtils.updateRequestBody(requestBody));
             if (response.getStatusCode() == ResponseCodeFactory.RESPONSE_CODE_200) {
                 JsonPath jsonPath = response.jsonPath();
                 name = jsonPath.get("name");
-                Logging.info("UPDATE user is successful with the response body: " + jsonPath.prettify());
                 ReportUtil.markPassed("UPDATE user is successful with the response body: " + jsonPath.prettify());
             } else {
                 ReportUtil.markFailed("UPDATE user is not successful");
@@ -55,7 +54,7 @@ public class RequestChaining extends HttpUtils {
 
     @Test (priority = 3)
     public void get() {
-        String tcId = "TC001";
+        String tcId = "TC003";
         if (isRunnable(tcId)) {
             endpoint = endpoint + Constants.FRONT_SLASH + id;
             Response response = get(endpoint);
@@ -69,7 +68,7 @@ public class RequestChaining extends HttpUtils {
 
     @Test (priority = 4)
     public void delete() {
-        String tcId = "TC001";
+        String tcId = "TC004";
         if (isRunnable(tcId)) {
             endpoint = endpoint + Constants.FRONT_SLASH + id;
             Response response = delete(endpoint);
