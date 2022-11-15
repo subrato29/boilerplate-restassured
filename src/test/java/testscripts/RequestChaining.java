@@ -20,7 +20,7 @@ public class RequestChaining extends HttpUtils {
     @Test (priority = 1)
     public void post() {
         String tcId = "TC001";
-        if (isTestCaseRunnable(tcId)) {
+        if (isRunnable(tcId)) {
             requestBody = ApiUtils.generateRequestBody();
             Response response = post(endpoint, requestBody);
             if (response.getStatusCode() == ResponseCodeFactory.RESPONSE_CODE_201) {
@@ -39,7 +39,7 @@ public class RequestChaining extends HttpUtils {
     @Test (priority = 2)
     public void put() {
         String tcId = "TC001";
-        if (isTestCaseRunnable(tcId)) {
+        if (isRunnable(tcId)) {
             endpoint = endpoint + Constants.FRONT_SLASH + id;
             Response response = put(endpoint, ApiUtils.updateRequestBody(requestBody));
             if (response.getStatusCode() == ResponseCodeFactory.RESPONSE_CODE_200) {
@@ -56,7 +56,7 @@ public class RequestChaining extends HttpUtils {
     @Test (priority = 3)
     public void get() {
         String tcId = "TC001";
-        if (isTestCaseRunnable(tcId)) {
+        if (isRunnable(tcId)) {
             endpoint = endpoint + Constants.FRONT_SLASH + id;
             Response response = get(endpoint);
             if (response.getStatusCode() == ResponseCodeFactory.RESPONSE_CODE_200) {
@@ -70,7 +70,7 @@ public class RequestChaining extends HttpUtils {
     @Test (priority = 4)
     public void delete() {
         String tcId = "TC001";
-        if (isTestCaseRunnable(tcId)) {
+        if (isRunnable(tcId)) {
             endpoint = endpoint + Constants.FRONT_SLASH + id;
             Response response = delete(endpoint);
             if (response.getStatusCode() == ResponseCodeFactory.RESPONSE_CODE_204) {

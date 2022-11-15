@@ -46,8 +46,8 @@ public class DriverScript {
 	 * @param tcId
 	 * @return
 	 */
-	public static boolean isTestCaseRunnable(String tcId) {
-		boolean isTestCaseRunnable = false;
+	public static boolean isRunnable(String tcId) {
+		boolean isRunnable = false;
 		continueRun = false;
 		rowNumController = xlsController.getCellRowNum(Constants.TEST_DATA, Constants.TEST_CASE_ID, tcId);
 		rowNum = rowNumController;
@@ -58,13 +58,13 @@ public class DriverScript {
 			continueRun = true;
 			xls = new Xls_Reader(TEST_DATA_PATH + Constants.FILE_SEPARATOR_KEY + "api_data.xlsx");
 			endpoint = BASE_URL + xls.getCellData(Constants.TEST_DATA, Constants.ENDPOINT, rowNum);
-			isTestCaseRunnable = true;
-			Logging.info("Test scenario started:==== " + testCaseId);
+			isRunnable = true;
+			Logging.info("Test scenario started:==== " + testCaseId + ": " + testCaseName);
 		} else {
 			Logging.info("Please check the runmode of TestCaseID '" + testCaseId + "'");
-			isTestCaseRunnable = false;
+			isRunnable = false;
 		}
-		return isTestCaseRunnable;
+		return isRunnable;
 	}
 
 	public static final int countOfExecutableTestCases = getRowNumForExecutableTestCases();

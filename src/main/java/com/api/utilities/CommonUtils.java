@@ -20,7 +20,7 @@ public class CommonUtils {
 	 * @return
 	 */
 	public static String getProperty(String strVal) {
-		String val = null;
+		String val;
 		try {
 			String path = System.getProperty("user.dir") + "/EnvironmentDetails/config.properties";
 			Properties prop = new Properties();
