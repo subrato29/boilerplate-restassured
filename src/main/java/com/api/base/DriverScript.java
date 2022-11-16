@@ -3,10 +3,7 @@ package com.api.base;
 import java.io.IOException;
 
 import com.api.console.Logging;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 import com.api.reports.ReportUtil;
 import com.api.support.Xls_Reader;
 import com.api.utilities.Constants;
@@ -15,7 +12,7 @@ import com.api.utilities.Zip;
 
 public class DriverScript {
 
-	public static String TEST_DATA_PATH = System.getProperty("user.dir") + "/src/main/resources/testData";
+	public static String TEST_DATA_PATH = Constants.FRAMEWORK_ROOT_DIRECTORY + "/src/main/resources/testData";
 	public static Xls_Reader xls = null, xlsController = new Xls_Reader(TEST_DATA_PATH + Constants.FILE_SEPARATOR_KEY + "controller.xlsx");
 	public static int rowNum = 2, rowNumController = 2;
 	public static int rowNumExecutableTC = 2;
@@ -86,15 +83,15 @@ public class DriverScript {
 	}
 
 
-	@AfterSuite()
+	@BeforeSuite
+	public void init () {
+		CommonUtils.deleteDirectory(Constants.FRAMEWORK_ROOT_DIRECTORY + "/Results");
+	}
+
+	@AfterSuite
 	public void afterClass() throws IOException {;
 		Zip.zipFile();
 	}
 
-
-	@BeforeClass()
-	public void init() throws IOException {
-
-	}
 
 }

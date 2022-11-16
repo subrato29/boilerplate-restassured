@@ -5,8 +5,11 @@
  * @author Subrato
  */
 package com.api.utilities;
+import java.io.File;
 import java.io.FileInputStream;
 import com.api.reports.ExtentManager;
+import net.bytebuddy.implementation.bytecode.Throw;
+import org.apache.commons.io.FileUtils;
 
 import java.security.SecureRandom;
 import java.util.*;
@@ -54,5 +57,17 @@ public class CommonUtils {
 			buff.append(CHARACTER_SET.substring(offset,offset+1));
 		}
 		return buff.toString();
+	}
+
+	/**
+	 *
+	 * @param dir
+	 */
+	public static void deleteDirectory (String dir) {
+		try {
+			FileUtils.deleteDirectory(new File(dir));
+		} catch (Throwable t) {
+
+		}
 	}
 }
