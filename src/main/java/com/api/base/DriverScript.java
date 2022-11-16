@@ -71,7 +71,6 @@ public class DriverScript {
 		return testDataSheet;
 	}
 
-
 	@BeforeMethod
 	public void beforeMethod() {
 
@@ -81,7 +80,6 @@ public class DriverScript {
 	public void afterMethod() {
 		ReportUtil.test = null;
 	}
-
 
 	@BeforeSuite
 	public void init () {
