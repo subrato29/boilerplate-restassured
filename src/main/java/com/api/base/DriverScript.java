@@ -83,7 +83,7 @@ public class DriverScript {
 
 	@BeforeSuite
 	public void init () {
-		CommonUtils.deleteDirectory(Constants.FRAMEWORK_ROOT_DIRECTORY + "/Results");
+		CommonUtils.deleteDirectory(Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.FRONT_SLASH + Constants.EXECUTION_REPORT_GENERATING_DIR);
 	}
 
 	@AfterSuite
