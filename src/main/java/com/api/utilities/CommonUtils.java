@@ -55,7 +55,7 @@ public class CommonUtils {
 	 * @return
 	 */
 	public static String getRandomString(int len) {
-		String CHARACTER_SET="0123456789abcdefghijklmnopqrstuvwxyz";
+		String CHARACTER_SET = "0123456789abcdefghijklmnopqrstuvwxyz";
 		SecureRandom random = new SecureRandom();
 		StringBuffer buff = new StringBuffer(len);
 		for(int i = 0; i < len; i++) {
