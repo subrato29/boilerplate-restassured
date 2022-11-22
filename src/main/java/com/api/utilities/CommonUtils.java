@@ -14,7 +14,6 @@ import org.apache.commons.io.FileUtils;
 import java.security.SecureRandom;
 import java.util.*;
 
-
 public class CommonUtils {
 
 	/**
