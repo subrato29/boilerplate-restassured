@@ -28,7 +28,7 @@ public class ExtentManager {
 
 	public static String htmlReportPath() {
 		String fileName = Constants.EXECUTION_REPORT_FILE_NAME + ".html";
-		reportFolderPath = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.FILE_SEPARATOR_KEY + "Results";
+		reportFolderPath = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.FILE_SEPARATOR_KEY + Constants.EXECUTION_REPORT_GENERATING_DIR;
 		File dir = new File(reportFolderPath);
 		dir.mkdir();
 		extent = new ExtentReports(reportFolderPath + Constants.FILE_SEPARATOR_KEY + fileName);

@@ -28,6 +28,7 @@ public class Constants {
 	public static final String COUNT_KEY = "count" ;
 	public static final String ID_KEY = "id";
 	public static final String ENDPOINT = "Endpoint";
+	public static final String EXECUTION_REPORT_GENERATING_DIR = "Results";
 	public static final String EXECUTION_REPORT_FILE_NAME = "Report";
 	public static final String FRAMEWORK_ROOT_DIRECTORY = System.getProperty("user.dir");
 }
