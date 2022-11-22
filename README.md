@@ -1,5 +1,11 @@
 ## boilerplate-restassured
 
-- Automation tool used: Rest-Assured
+Automation tool used: Rest-Assured
 
-- Author: Subrato Sarkar
+Author: Subrato Sarkar
+
+How to run
+```
+Run `TestNgRunner`
+```
+
