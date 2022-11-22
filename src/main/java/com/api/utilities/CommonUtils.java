@@ -35,6 +35,7 @@ public class CommonUtils {
 		}
 		return val;
 	}
+
 	/**
 	 *
 	 * @return
@@ -48,6 +49,11 @@ public class CommonUtils {
 		}
 	}
 
+	/**
+	 *
+	 * @param len
+	 * @return
+	 */
 	public static String getRandomString(int len) {
 		String CHARACTER_SET="0123456789abcdefghijklmnopqrstuvwxyz";
 		SecureRandom random = new SecureRandom();
