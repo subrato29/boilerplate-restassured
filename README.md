@@ -1,8 +1,11 @@
 ## boilerplate-restassured
 
-Automation tool used: Rest-Assured
-
 Author: Subrato Sarkar
+
+Automation library used
+```
+Rest-Assured
+```
 
 How to run
 ```
