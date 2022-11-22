@@ -77,7 +77,7 @@ public class DriverScript {
 	}
 
 	@AfterMethod
-	public void afterMethod() {
+	public void tearDownTest() {
 		ReportUtil.test = null;
 	}
 
@@ -87,7 +87,7 @@ public class DriverScript {
 	}
 
 	@AfterSuite
-	public void afterClass() throws IOException {;
+	public void tearDownSuite() throws IOException {;
 		Zip.zipFile();
 	}
 
