@@ -70,4 +70,15 @@ public class CommonUtils {
 
 		}
 	}
+
+	/**
+	 *
+	 * @param dirPath
+	 * @return
+	 */
+	public static String generateDirectory (String dirPath) {
+		File dir = new File(dirPath);
+		dir.mkdir();
+		return dirPath;
+	}
 }
