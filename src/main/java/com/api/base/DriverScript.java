@@ -13,8 +13,8 @@ import com.api.utilities.Zip;
 public class DriverScript {
 
 	public static String TEST_CONTROLLER_PATH = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_CONTROLLER_PATH;
-	public static Xls_Reader xls = null, xlsController = new Xls_Reader(TEST_CONTROLLER_PATH + "controller.xlsx");
-	public static int rowNum = 2, rowNumController = 2;
+	public static Xls_Reader controller = new Xls_Reader(TEST_CONTROLLER_PATH + Constants.CONTROLLER_FILE);
+	public static int rowNum = 2;
 	public static int rowNumExecutableTC = 2;
 	public static int count = 0;
 	public static String testCaseName;
@@ -28,8 +28,8 @@ public class DriverScript {
 	 * @return
 	 */
 	public static int getRowNumForExecutableTestCases() {
-		while (rowNumExecutableTC <= xlsController.getRowCount(Constants.TEST_DATA)) {
-			if (xlsController.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_RUNMODE, rowNumExecutableTC).toUpperCase().equals(Constants.TEST_CASE_RUNMODE_YES)) {
+		while (rowNumExecutableTC <= controller.getRowCount(Constants.TEST_DATA)) {
+			if (controller.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_RUNMODE, rowNumExecutableTC).toUpperCase().equals(Constants.TEST_CASE_RUNMODE_YES)) {
 				count++;
 			}
 			rowNumExecutableTC++;
@@ -46,15 +46,13 @@ public class DriverScript {
 	public static boolean isRunnable(String tcId) {
 		boolean isRunnable = false;
 		continueRun = false;
-		rowNumController = xlsController.getCellRowNum(Constants.TEST_DATA, Constants.TEST_CASE_ID, tcId);
-		rowNum = rowNumController;
+		rowNum = controller.getCellRowNum(Constants.TEST_DATA, Constants.TEST_CASE_ID, tcId);
 		testCaseId = tcId;
-		testCaseName = xlsController.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_NAME, rowNum);
-		if (xlsController.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_RUNMODE, rowNum).equalsIgnoreCase(Constants.TEST_CASE_RUNMODE_YES)) {
+		testCaseName = controller.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_NAME, rowNum);
+		if (controller.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_RUNMODE, rowNum).equalsIgnoreCase(Constants.TEST_CASE_RUNMODE_YES)) {
 			endpoint = null;
 			continueRun = true;
-			xls = new Xls_Reader(TEST_CONTROLLER_PATH + Constants.FILE_SEPARATOR_KEY + "api_data.xlsx");
-			endpoint = BASE_URL + xls.getCellData(Constants.TEST_DATA, Constants.ENDPOINT, rowNum);
+			endpoint = BASE_URL + controller.getCellData(Constants.TEST_DATA, Constants.ENDPOINT, rowNum);
 			isRunnable = true;
 			Logging.info("Test scenario started:==== " + testCaseId + ": " + testCaseName);
 		} else {
@@ -67,7 +65,7 @@ public class DriverScript {
 	public static final int countOfExecutableTestCases = getRowNumForExecutableTestCases();
 
 	public static String getTestDataSheetName() {
-		String testDataSheet = xlsController.getCellData(Constants.TEST_DATA, Constants.TEST_DATA_FILE_NAME, rowNum);
+		String testDataSheet = controller.getCellData(Constants.TEST_DATA, Constants.TEST_DATA_FILE_NAME, rowNum);
 		return testDataSheet;
 	}
 
