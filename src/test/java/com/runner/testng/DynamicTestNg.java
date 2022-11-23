@@ -26,7 +26,7 @@ public class DynamicTestNg {
 
 			suite.setName("Suite");
 			List < String > files = new ArrayList < String > ();
-			files.add(System.getProperty("user.dir") + Constants.FILE_SEPARATOR_KEY + TESTNG_DOT_XML);
+			files.add(Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.FILE_SEPARATOR_KEY + TESTNG_DOT_XML);
 
 			File file = new File(Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.FILE_SEPARATOR_KEY +
 					"src" + Constants.FILE_SEPARATOR_KEY + "test" + Constants.FILE_SEPARATOR_KEY + "java" + Constants.FILE_SEPARATOR_KEY + "testscripts");
