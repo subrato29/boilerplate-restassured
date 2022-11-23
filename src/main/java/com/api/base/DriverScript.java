@@ -12,8 +12,8 @@ import com.api.utilities.Zip;
 
 public class DriverScript {
 
-	public static String TEST_DATA_PATH = Constants.FRAMEWORK_ROOT_DIRECTORY + "/src/main/resources/testData";
-	public static Xls_Reader xls = null, xlsController = new Xls_Reader(TEST_DATA_PATH + Constants.FILE_SEPARATOR_KEY + "controller.xlsx");
+	public static String TEST_CONTROLLER_PATH = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_CONTROLLER_PATH;
+	public static Xls_Reader xls = null, xlsController = new Xls_Reader(TEST_CONTROLLER_PATH + "controller.xlsx");
 	public static int rowNum = 2, rowNumController = 2;
 	public static int rowNumExecutableTC = 2;
 	public static int count = 0;
@@ -53,7 +53,7 @@ public class DriverScript {
 		if (xlsController.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_RUNMODE, rowNum).equalsIgnoreCase(Constants.TEST_CASE_RUNMODE_YES)) {
 			endpoint = null;
 			continueRun = true;
-			xls = new Xls_Reader(TEST_DATA_PATH + Constants.FILE_SEPARATOR_KEY + "api_data.xlsx");
+			xls = new Xls_Reader(TEST_CONTROLLER_PATH + Constants.FILE_SEPARATOR_KEY + "api_data.xlsx");
 			endpoint = BASE_URL + xls.getCellData(Constants.TEST_DATA, Constants.ENDPOINT, rowNum);
 			isRunnable = true;
 			Logging.info("Test scenario started:==== " + testCaseId + ": " + testCaseName);

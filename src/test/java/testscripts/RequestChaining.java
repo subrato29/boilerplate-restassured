@@ -28,7 +28,7 @@ public class RequestChaining extends HttpUtils {
                 id = jsonPath.get(Constants.ID_KEY);
                 email = jsonPath.get("email");
                 name = jsonPath.get("name");
-                Logging.info("CREATE user is successful with email");
+                Logging.info("CREATE user is successful with email: " + email);
                 ReportUtil.markPassed("CREATE user is successful with email: " + email);
             } else {
                 ReportUtil.markFailed("CREATE user is not successful");
@@ -45,6 +45,7 @@ public class RequestChaining extends HttpUtils {
             if (response.getStatusCode() == ResponseCodeFactory.RESPONSE_CODE_200) {
                 JsonPath jsonPath = response.jsonPath();
                 name = jsonPath.get("name");
+                Logging.info("PUT user is successful where updated name: " + name);
                 ReportUtil.markPassed("UPDATE user is successful with the response body: " + jsonPath.prettify());
             } else {
                 ReportUtil.markFailed("UPDATE user is not successful");

@@ -31,4 +31,6 @@ public class Constants {
 	public static final String EXECUTION_REPORT_GENERATING_DIR = "Results";
 	public static final String EXECUTION_REPORT_FILE_NAME = "Report";
 	public static final String FRAMEWORK_ROOT_DIRECTORY = System.getProperty("user.dir");
+	public static final String TEST_CONTROLLER_PATH = "/src/main/resources/testController/";
+	public static final String JSON_DATA_PATH = "/src/main/resources/jsonData/";
 }

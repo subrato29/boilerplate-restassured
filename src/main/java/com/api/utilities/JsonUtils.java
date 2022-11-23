@@ -15,7 +15,7 @@ public class JsonUtils {
      * @return
      */
     public static JSONArray getJsonArray (String nameOfJsonFile, String jsonObjectKey) {
-        final String JSON_DATA_PATH = Constants.FRAMEWORK_ROOT_DIRECTORY + "/src/main/resources/jsonData/";
+        final String JSON_DATA_PATH = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.JSON_DATA_PATH;
         JSONParser parser = new JSONParser();
         try {
             Object obj = parser.parse(new FileReader(JSON_DATA_PATH + nameOfJsonFile + ".json"));
