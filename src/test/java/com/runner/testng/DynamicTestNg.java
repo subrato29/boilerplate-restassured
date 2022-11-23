@@ -16,7 +16,7 @@ import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
 
 public class DynamicTestNg {
-	static String TESTNG_DOT_XML = "testng.xml";
+	public static final String TESTNG_DOT_XML = "testng.xml";
 	public static void main(String[] args) {
 		String testName = null;
 		try {
