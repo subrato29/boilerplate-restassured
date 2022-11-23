@@ -9,6 +9,6 @@ Rest-Assured
 
 How to run
 ```
-Run `TestNgRunner`
+Run the `Runner` class
 ```
 
