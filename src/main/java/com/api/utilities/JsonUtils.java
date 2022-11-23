@@ -12,19 +12,20 @@ import java.util.List;
 public class JsonUtils {
 
     /**
-     *
+     * Based on jsonKey, json array object will be returned
      * @param nameOfJsonFile
+     * @param jsonObjectKey
      * @return
      */
-    public static List<String> getJsonBody (String nameOfJsonFile) {
+    public static List<String> getJsonBody (String nameOfJsonFile, String jsonObjectKey) {
         final String JSON_DATA_PATH = Constants.FRAMEWORK_ROOT_DIRECTORY + "/src/main/resources/jsonData/";
         List<String> enterprise = new ArrayList<>();
         JSONParser parser = new JSONParser();
         try {
             Object obj = parser.parse(new FileReader(JSON_DATA_PATH + nameOfJsonFile + ".json"));
             JSONObject jsonObject = (JSONObject) obj;
-            JSONArray enterpriseList = (JSONArray) jsonObject.get("enterprise");
-            Iterator<JSONObject> iterator = enterpriseList.iterator();
+            JSONArray jsonArray = (JSONArray) jsonObject.get(jsonObjectKey);
+            Iterator<JSONObject> iterator = jsonArray.iterator();
             while (iterator.hasNext()) {
                 enterprise.add (String.valueOf(iterator.next()));
             }
