@@ -16,7 +16,7 @@ import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
 
 public class DynamicTestNg {
-	static String testNgXml = "testng.xml";
+	static String TESTNG_DOT_XML = "testng.xml";
 	public static void main(String[] args) {
 		String testName = null;
 		try {
@@ -26,9 +26,9 @@ public class DynamicTestNg {
 
 			suite.setName("Suite");
 			List < String > files = new ArrayList < String > ();
-			files.add(System.getProperty("user.dir") + Constants.FILE_SEPARATOR_KEY + testNgXml);
+			files.add(System.getProperty("user.dir") + Constants.FILE_SEPARATOR_KEY + TESTNG_DOT_XML);
 
-			File file = new File(System.getProperty("user.dir") + Constants.FILE_SEPARATOR_KEY +
+			File file = new File(Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.FILE_SEPARATOR_KEY +
 					"src" + Constants.FILE_SEPARATOR_KEY + "test" + Constants.FILE_SEPARATOR_KEY + "java" + Constants.FILE_SEPARATOR_KEY + "testscripts");
 			String[] fileList = file.list();
 			for (String name: fileList) {
@@ -38,7 +38,7 @@ public class DynamicTestNg {
 					test.setName("Test");
 					test.setThreadCount(5);
 					test.setXmlClasses(classList);
-					FileWriter writer = new FileWriter(new File(testNgXml));
+					FileWriter writer = new FileWriter(new File(TESTNG_DOT_XML));
 					writer.write(suite.toXml());
 					writer.flush();
 					writer.close();
