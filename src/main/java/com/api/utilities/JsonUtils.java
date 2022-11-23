@@ -19,7 +19,7 @@ public class JsonUtils {
      */
     public static List<String> getJsonBody (String nameOfJsonFile, String jsonObjectKey) {
         final String JSON_DATA_PATH = Constants.FRAMEWORK_ROOT_DIRECTORY + "/src/main/resources/jsonData/";
-        List<String> enterprise = new ArrayList<>();
+        List<String> list = new ArrayList<>();
         JSONParser parser = new JSONParser();
         try {
             Object obj = parser.parse(new FileReader(JSON_DATA_PATH + nameOfJsonFile + ".json"));
@@ -27,11 +27,11 @@ public class JsonUtils {
             JSONArray jsonArray = (JSONArray) jsonObject.get(jsonObjectKey);
             Iterator<JSONObject> iterator = jsonArray.iterator();
             while (iterator.hasNext()) {
-                enterprise.add (String.valueOf(iterator.next()));
+                list.add (String.valueOf(iterator.next()));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return enterprise;
+        return list;
     }
 }
