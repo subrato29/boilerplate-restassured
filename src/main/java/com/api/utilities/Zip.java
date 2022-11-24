@@ -19,7 +19,7 @@ public class Zip extends CommonUtils{
 				byte[] buffer = new byte[1024];
 				FileOutputStream fos = new FileOutputStream(zipFile);
 				ZipOutputStream zos = new ZipOutputStream(fos);
-				for (int i=0; i < srcFiles.length; i++) {
+				for (int i = 0; i < srcFiles.length; i++) {
 					File srcFile = new File(srcFiles[i]);
 					FileInputStream fis = new FileInputStream(srcFile);
 					zos.putNextEntry(new ZipEntry(srcFile.getName()));
