@@ -10,7 +10,7 @@ import com.api.support.Constants;
 import com.api.utilities.CommonUtils;
 import com.api.utilities.Zip;
 
-public class DriverScript {
+public class BaseInit {
 
 	public static String testCaseName;
 	public static String testCaseId;

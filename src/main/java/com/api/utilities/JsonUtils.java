@@ -95,14 +95,29 @@ public class JsonUtils {
         return false;
     }
 
+    /**
+     *
+     * @param tcId
+     * @return
+     */
     public static String getRunMode (String tcId) {
         return getControllerValueBasedOnKey (tcId, "runmode");
     }
 
+    /**
+     *
+     * @param tcId
+     * @return
+     */
     public static String getScenarioName (String tcId) {
         return getControllerValueBasedOnKey (tcId, "scenario");
     }
 
+    /**
+     *
+     * @param tcId
+     * @return
+     */
     public static String getEndpoint (String tcId) {
         return getControllerValueBasedOnKey (tcId, "endpoint");
     }
