@@ -124,7 +124,7 @@ public class JsonUtils extends BaseInit {
      *
      * @return
      */
-    public static String getRequestBody () {
+    public static String getRequestBodyFileName () {
         return getControllerValueBasedOnKey (testCaseId, "requestBody");
     }
 }
