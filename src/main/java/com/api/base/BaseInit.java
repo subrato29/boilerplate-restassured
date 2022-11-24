@@ -24,21 +24,19 @@ public class BaseInit {
 	 * @return
 	 */
 	public static boolean isRunnable(String tcId) {
-		boolean isRunnable = false;
 		continueRun = false;
 		testCaseId = tcId;
-		testCaseName = JsonUtils.getScenarioName(testCaseId);
-		String runMode = JsonUtils.getRunMode(testCaseId);
+		testCaseName = JsonUtils.getScenarioName();
+		String runMode = JsonUtils.getRunMode();
 		if (JsonUtils.isValidTestCaseId(testCaseId) && runMode.equalsIgnoreCase(Constants.TEST_CASE_RUNMODE_YES)) {
 			continueRun = true;
-			endpoint = BASE_URL + JsonUtils.getEndpoint(tcId);
-			isRunnable = true;
+			endpoint = BASE_URL + JsonUtils.getEndpoint();
 			Logging.info("Test scenario started:==== " + testCaseId + ": " + testCaseName);
+			return true;
 		} else {
 			Logging.info("Either tcId is invalid or runmode of tcId is not Yes'" + testCaseId + "'");
-			isRunnable = false;
 		}
-		return isRunnable;
+		return false;
 	}
 
 	@BeforeMethod

@@ -3,7 +3,8 @@
     "TC001": {
       "scenario": "POST call",
       "runmode": "Yes",
-      "endpoint": "/public/v2/users"
+      "endpoint": "/public/v2/users",
+      "requestBody": "requestBody"
     }
   },
   {

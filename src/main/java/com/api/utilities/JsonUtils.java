@@ -1,5 +1,6 @@
 package com.api.utilities;
 
+import com.api.base.BaseInit;
 import com.api.support.Constants;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -7,7 +8,7 @@ import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
 
-public class JsonUtils {
+public class JsonUtils extends BaseInit {
 
     static final String TEST_DATA_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_DATA_DIR;
     static final String CONTROLLER_FILE_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_CONTROLLER_DIR;
@@ -97,28 +98,33 @@ public class JsonUtils {
 
     /**
      *
-     * @param tcId
      * @return
      */
-    public static String getRunMode (String tcId) {
-        return getControllerValueBasedOnKey (tcId, "runmode");
+    public static String getRunMode () {
+        return getControllerValueBasedOnKey (testCaseId, "runmode");
     }
 
     /**
      *
-     * @param tcId
      * @return
      */
-    public static String getScenarioName (String tcId) {
-        return getControllerValueBasedOnKey (tcId, "scenario");
+    public static String getScenarioName () {
+        return getControllerValueBasedOnKey (testCaseId, "scenario");
     }
 
     /**
      *
-     * @param tcId
      * @return
      */
-    public static String getEndpoint (String tcId) {
-        return getControllerValueBasedOnKey (tcId, "endpoint");
+    public static String getEndpoint () {
+        return getControllerValueBasedOnKey (testCaseId, "endpoint");
+    }
+
+    /**
+     *
+     * @return
+     */
+    public static String getRequestBody () {
+        return getControllerValueBasedOnKey (testCaseId, "requestBody");
     }
 }
