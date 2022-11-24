@@ -34,7 +34,6 @@ public class Xls_Reader {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	/**
@@ -170,10 +169,8 @@ public class Xls_Reader {
 		try {
 			fis = new FileInputStream(path);
 			workbook = new XSSFWorkbook(fis);
-
 			if (rowNum <= 0)
 				return false;
-
 			int index = workbook.getSheetIndex(sheetName);
 			int colNum = -1;
 			if (index == -1)
@@ -219,10 +216,8 @@ public class Xls_Reader {
 		try {
 			fis = new FileInputStream(path);
 			workbook = new XSSFWorkbook(fis);
-
 			if (rowNum <= 0)
 				return false;
-
 			int index = workbook.getSheetIndex(sheetName);
 			int colNum = -1;
 			if (index == -1)
@@ -233,7 +228,6 @@ public class Xls_Reader {
 				if (row.getCell(i).getStringCellValue().trim().equalsIgnoreCase(colName))
 					colNum = i;
 			}
-
 			if (colNum == -1)
 				return false;
 			sheet.autoSizeColumn(colNum); //ashish
@@ -261,7 +255,6 @@ public class Xls_Reader {
 			workbook.write(fileOut);
 
 			fileOut.close();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -271,14 +264,13 @@ public class Xls_Reader {
 
 	/**
 	 * returns true if sheet is created successfully else false
-	 * @param sheetname
+	 * @param sheetName
 	 * @return
 	 */
-	public boolean addSheet(String sheetname) {
-
+	public boolean addSheet(String sheetName) {
 		FileOutputStream fileOut;
 		try {
-			workbook.createSheet(sheetname);
+			workbook.createSheet(sheetName);
 			fileOut = new FileOutputStream(path);
 			workbook.write(fileOut);
 			fileOut.close();
@@ -298,7 +290,6 @@ public class Xls_Reader {
 		int index = workbook.getSheetIndex(sheetName);
 		if (index == -1)
 			return false;
-
 		FileOutputStream fileOut;
 		try {
 			workbook.removeSheetAt(index);
@@ -418,7 +409,6 @@ public class Xls_Reader {
 			return -1;
 		sheet = workbook.getSheet(sheetName);
 		row = sheet.getRow(0);
-
 		if (row == null)
 			return -1;
 		return row.getLastCellNum();
@@ -438,9 +428,7 @@ public class Xls_Reader {
 		url = url.replace('\\', '/');
 		if (!isSheetExist(sheetName))
 			return false;
-
 		sheet = workbook.getSheet(sheetName);
-
 		for (int i = 2; i <= getRowCount(sheetName); i++) {
 			if (getCellData(sheetName, 0, i).equalsIgnoreCase(testCaseName)) {
 				setCellData(sheetName, screenShotColName, i + index, message, url);
@@ -458,7 +446,6 @@ public class Xls_Reader {
 	 * @return
 	 */
 	public int getCellRowNum(String sheetName, String colName, String cellValue) {
-
 		for (int i = 2; i <= getRowCount(sheetName); i++) {
 			if (getCellData(sheetName, colName, i).equalsIgnoreCase(cellValue)) {
 				return i;
