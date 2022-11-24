@@ -50,7 +50,6 @@ public class DriverScript {
 		testCaseId = tcId;
 		testCaseName = controller.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_NAME, rowNum);
 		if (controller.getCellData(Constants.TEST_DATA, Constants.TEST_CASE_RUNMODE, rowNum).equalsIgnoreCase(Constants.TEST_CASE_RUNMODE_YES)) {
-			endpoint = null;
 			continueRun = true;
 			endpoint = BASE_URL + controller.getCellData(Constants.TEST_DATA, Constants.ENDPOINT, rowNum);
 			isRunnable = true;
