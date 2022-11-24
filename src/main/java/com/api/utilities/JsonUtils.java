@@ -11,7 +11,7 @@ import java.io.FileReader;
 public class JsonUtils extends BaseInit {
 
     static final String TEST_DATA_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_DATA_DIR;
-    static final String CONTROLLER_FILE_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_CONTROLLER_DIR;
+    static final String TEST_CONTROLLER_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_CONTROLLER_DIR;
 
     /**
      * Based on jsonKey, json array object will be returned
@@ -68,7 +68,7 @@ public class JsonUtils extends BaseInit {
      * @return
      */
     public static String getControllerValueBasedOnKey (String tcId, String key) {
-        String jsonFilePath = CONTROLLER_FILE_DIR + Constants.CONTROLLER_DOT_JSON;
+        String jsonFilePath = TEST_CONTROLLER_DIR + Constants.CONTROLLER_DOT_JSON;
         JSONArray controller = JsonUtils.getJsonBody(jsonFilePath);
         for (int i = 0; i < controller.size(); i++) {
             JSONObject jsonObject = (JSONObject) controller.get(i);
@@ -85,7 +85,7 @@ public class JsonUtils extends BaseInit {
      * @return
      */
     public static boolean isValidTestCaseId (String tcId) {
-        String jsonFilePath = CONTROLLER_FILE_DIR + Constants.CONTROLLER_DOT_JSON;
+        String jsonFilePath = TEST_CONTROLLER_DIR + Constants.CONTROLLER_DOT_JSON;
         JSONArray controller = JsonUtils.getJsonBody(jsonFilePath);
         for (int i = 0; i < controller.size(); i++) {
             JSONObject jsonObject = (JSONObject) controller.get(i);
@@ -126,5 +126,21 @@ public class JsonUtils extends BaseInit {
      */
     public static String getRequestBodyFileName () {
         return getControllerValueBasedOnKey (testCaseId, "requestBody");
+    }
+
+    /**
+     *
+     * @return
+     */
+    public static boolean getSuiteRunMode () {
+        String jsonFilePath = TEST_CONTROLLER_DIR + Constants.SUITE_RUN_CONFIG;
+        JSONArray runConfig = JsonUtils.getJsonBody(jsonFilePath);
+        for (int i = 0; i < runConfig.size(); i++) {
+            JSONObject jsonObject = (JSONObject) runConfig.get(i);
+            if (jsonObject.get("suiteRunMode").equals(true)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

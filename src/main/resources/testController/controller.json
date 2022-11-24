@@ -17,7 +17,7 @@
   {
     "TC003": {
       "scenario": "GET call",
-      "runmode": "Yes",
+      "runmode": "No",
       "endpoint": "/public/v2/users"
     }
   },
