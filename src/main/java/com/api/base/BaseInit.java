@@ -27,8 +27,8 @@ public class BaseInit {
 		boolean isRunnable = false;
 		continueRun = false;
 		testCaseId = tcId;
-		testCaseName = JsonUtils.getScenarioName(tcId);
-		String runMode = JsonUtils.getRunMode(tcId);
+		testCaseName = JsonUtils.getScenarioName(testCaseId);
+		String runMode = JsonUtils.getRunMode(testCaseId);
 		if (JsonUtils.isValidTestCaseId(testCaseId) && runMode.equalsIgnoreCase(Constants.TEST_CASE_RUNMODE_YES)) {
 			continueRun = true;
 			endpoint = BASE_URL + JsonUtils.getEndpoint(tcId);
