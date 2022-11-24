@@ -1,7 +1,7 @@
 package com.runner.testng;
 import java.util.List;
 
-import com.api.utilities.Constants;
+import com.api.support.Constants;
 import org.testng.TestNG;
 
 import com.beust.jcommander.internal.Lists;

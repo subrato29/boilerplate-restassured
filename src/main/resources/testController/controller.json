@@ -1,0 +1,30 @@
+[
+  {
+    "TC001": {
+      "scenario": "POST call",
+      "runmode": "Yes",
+      "endpoint": "/public/v2/users"
+    }
+  },
+  {
+    "TC002": {
+      "scenario": "PUT call",
+      "runmode": "Yes",
+      "endpoint": "/public/v2/users"
+    }
+  },
+  {
+    "TC003": {
+      "scenario": "GET call",
+      "runmode": "Yes",
+      "endpoint": "/public/v2/users"
+    }
+  },
+  {
+    "TC004": {
+      "scenario": "DELETE call",
+      "runmode": "Yes",
+      "endpoint": "/public/v2/users"
+    }
+  }
+]

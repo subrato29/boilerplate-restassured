@@ -1,4 +1,4 @@
-package com.api.utilities;
+package com.api.support;
 
 public class ResponseCodeFactory {
     public static final int RESPONSE_CODE_200 = 200;

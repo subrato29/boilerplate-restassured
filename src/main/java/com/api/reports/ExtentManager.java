@@ -1,7 +1,7 @@
 package com.api.reports;
 import java.io.File;
 import com.api.utilities.CommonUtils;
-import com.api.utilities.Constants;
+import com.api.support.Constants;
 import com.relevantcodes.extentreports.ExtentReports;
 
 public class ExtentManager {
