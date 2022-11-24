@@ -11,6 +11,7 @@ public class RestClient extends AuthFactory {
 
 	static final String APPLICATION_JSON_CONTENT_TYPE = "application/json";
 	static final String AUTHORIZATION = "Authorization";
+
 	/**
 	 *
 	 * @param endpoint
