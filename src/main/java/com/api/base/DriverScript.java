@@ -12,7 +12,6 @@ import com.api.utilities.Zip;
 
 public class DriverScript {
 
-	public static String TEST_CONTROLLER_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_CONTROLLER_DIR;
 	public static String testCaseName;
 	public static String testCaseId;
 	public static boolean continueRun = false;
