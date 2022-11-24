@@ -65,7 +65,7 @@ public class JsonUtils extends BaseInit {
      *
      * @param tcId
      * @param key
-     * @return
+     * @return String value of the keys belong to controller.json
      */
     public static String getControllerValueBasedOnKey (String tcId, String key) {
         String jsonFilePath = TEST_CONTROLLER_DIR + Constants.CONTROLLER_DOT_JSON;
@@ -79,6 +79,12 @@ public class JsonUtils extends BaseInit {
         return null;
     }
 
+    /**
+     *
+     * @param tcId
+     * @param key
+     * @return Boolean value of the keys belong to controller.json
+     */
     public static boolean getControllerBooleanValueBasedOnKey (String tcId, String key) {
         String jsonFilePath = TEST_CONTROLLER_DIR + Constants.CONTROLLER_DOT_JSON;
         JSONArray controller = JsonUtils.getJsonBody(jsonFilePath);
