@@ -79,6 +79,20 @@ public class JsonUtils extends BaseInit {
         return null;
     }
 
+    public static boolean getControllerBooleanValueBasedOnKey (String tcId, String key) {
+        String jsonFilePath = TEST_CONTROLLER_DIR + Constants.CONTROLLER_DOT_JSON;
+        JSONArray controller = JsonUtils.getJsonBody(jsonFilePath);
+        for (int i = 0; i < controller.size(); i++) {
+            JSONObject jsonObject = (JSONObject) controller.get(i);
+            if (jsonObject.containsKey(tcId)) {
+                if (((JSONObject) jsonObject.get(tcId)).get(key).equals(true)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     /**
      * This function will check whether input TestCaseID belongs to controller.json
      * @param tcId
@@ -100,8 +114,8 @@ public class JsonUtils extends BaseInit {
      *
      * @return
      */
-    public static String getRunMode () {
-        return getControllerValueBasedOnKey (testCaseId, "runmode");
+    public static boolean getRunMode () {
+        return getControllerBooleanValueBasedOnKey (testCaseId, "runmode");
     }
 
     /**

@@ -28,10 +28,9 @@ public class BaseInit {
 		continueRun = false;
 		testCaseId = tcId;
 		testCaseName = JsonUtils.getScenarioName();
-		String runMode = JsonUtils.getRunMode();
 		if (JsonUtils.getSuiteRunMode()) {
 			isRunnable = true;
-		} else if (JsonUtils.isValidTestCaseId(testCaseId) && runMode.equalsIgnoreCase(Constants.TEST_CASE_RUNMODE_YES)) {
+		} else if (JsonUtils.isValidTestCaseId(testCaseId) && JsonUtils.getRunMode()) {
 			isRunnable = true;
 		}
 		if (isRunnable) {
@@ -40,7 +39,7 @@ public class BaseInit {
 			Logging.info("Test scenario started:==== " + testCaseId + ": " + testCaseName);
 			return true;
 		} else {
-			Logging.info("Either tcId is invalid or runmode of tcId is not Yes'" + testCaseId + "'");
+			Logging.info("Either tcId is invalid or runmode of tcId is not true: '" + testCaseId + "'");
 		}
 		return false;
 	}

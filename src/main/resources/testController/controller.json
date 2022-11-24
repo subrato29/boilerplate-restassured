@@ -2,7 +2,7 @@
   {
     "TC001": {
       "scenario": "POST call",
-      "runmode": "Yes",
+      "runmode": true,
       "endpoint": "/public/v2/users",
       "requestBody": "requestBody"
     }
@@ -10,21 +10,21 @@
   {
     "TC002": {
       "scenario": "PUT call",
-      "runmode": "Yes",
+      "runmode": false,
       "endpoint": "/public/v2/users"
     }
   },
   {
     "TC003": {
       "scenario": "GET call",
-      "runmode": "No",
+      "runmode": false,
       "endpoint": "/public/v2/users"
     }
   },
   {
     "TC004": {
       "scenario": "DELETE call",
-      "runmode": "Yes",
+      "runmode": true,
       "endpoint": "/public/v2/users"
     }
   }
