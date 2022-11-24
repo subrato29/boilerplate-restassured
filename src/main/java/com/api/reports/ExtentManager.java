@@ -14,7 +14,7 @@ public class ExtentManager {
 	public static ExtentReports getInstance() {
 		if (extent == null) {
 			dynamicHtmlReportPath = htmlReportPath();
-			extent.loadConfig(new File(System.getProperty("user.dir") + "/ReportsConfig.xml"));
+			extent.loadConfig(new File(Constants.FRAMEWORK_ROOT_DIRECTORY + "/ReportsConfig.xml"));
 			try {
 				extent
 						.addSystemInfo("Environment", env);

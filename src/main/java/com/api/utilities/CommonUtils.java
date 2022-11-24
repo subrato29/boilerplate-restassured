@@ -8,6 +8,7 @@ package com.api.utilities;
 import java.io.File;
 import java.io.FileInputStream;
 import com.api.reports.ExtentManager;
+import com.api.support.Constants;
 import net.bytebuddy.implementation.bytecode.Throw;
 import org.apache.commons.io.FileUtils;
 
@@ -24,7 +25,7 @@ public class CommonUtils {
 	public static String getProperty(String strVal) {
 		String val;
 		try {
-			String path = System.getProperty("user.dir") + "/EnvironmentDetails/config.properties";
+			String path = Constants.FRAMEWORK_ROOT_DIRECTORY + "/environment/config.properties";
 			Properties prop = new Properties();
 			FileInputStream fs = new FileInputStream(path);
 			prop.load(fs);
