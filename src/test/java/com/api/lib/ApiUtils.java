@@ -1,18 +1,12 @@
 package com.api.lib;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.api.utilities.CommonUtils;
 import org.json.simple.JSONObject;
 import com.api.reports.ReportUtil;
 
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class ApiUtils extends HttpUtils {
+public class ApiUtils extends RestClient {
 
 	/**
 	 *

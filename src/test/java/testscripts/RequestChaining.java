@@ -2,7 +2,7 @@ package testscripts;
 
 import com.api.console.Logging;
 import com.api.lib.ApiUtils;
-import com.api.lib.HttpUtils;
+import com.api.lib.RestClient;
 import com.api.reports.ReportUtil;
 import com.api.support.Constants;
 import com.api.support.ResponseCodeFactory;
@@ -11,7 +11,7 @@ import io.restassured.response.Response;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
-public class RequestChaining extends HttpUtils {
+public class RequestChaining extends RestClient {
     String email = "";
     String name = "";
     int id;

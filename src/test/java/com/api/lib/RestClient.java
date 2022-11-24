@@ -7,7 +7,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public class HttpUtils extends AuthFactory {
+public class RestClient extends AuthFactory {
 
 	static final String APPLICATION_JSON_CONTENT_TYPE = "application/json";
 	static final String AUTHORIZATION = "Authorization";
