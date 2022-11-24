@@ -1,4 +1,6 @@
 package com.api.utilities;  
+import com.api.support.Constants;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -7,12 +9,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 public class Zip extends CommonUtils{
-		static String screenshotPath;
-		private static String zipFile = "Results/Reports.zip";
+		private static String zipFile = Constants.EXECUTION_REPORT_GENERATING_DIR
+				+ Constants.FRONT_SLASH
+				+ Constants.EXECUTION_REPORT_FILE_NAME + ".zip";
 		private static String[] srcFiles = {htmlReportPathGenerated()};
 		public static void zipFile() {
 			htmlReportPathGenerated();
-			System.out.println("Zipping the files");
 			try {
 				byte[] buffer = new byte[1024];
 				FileOutputStream fos = new FileOutputStream(zipFile);
@@ -31,7 +33,6 @@ public class Zip extends CommonUtils{
 				zos.close();
 			}
 			catch (IOException ioe) {
-				//System.out.println("Error creating zip file: " + ioe);
 			}
 		
 	}
