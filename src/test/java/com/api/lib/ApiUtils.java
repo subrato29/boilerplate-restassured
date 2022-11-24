@@ -23,7 +23,7 @@ public class ApiUtils extends HttpUtils {
 		if (response.header("content-type").contains("application/json")) {
 			ReportUtil.markPassed("Response header is correctly validated");
 		} else {
-			ReportUtil.markFailed("Reponse header is not validated");
+			ReportUtil.markFailed("Response header is not validated");
 		}
 	}
 
