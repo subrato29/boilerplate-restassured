@@ -8,9 +8,12 @@ public class ExtentManager {
 	private static ExtentReports extent;
 	public static String dynamicHtmlReportPath;
 	public static String reportFolderPath = null;
-
 	static String env = CommonUtils.getProperty("ENV");
 
+	/**
+	 *
+	 * @return
+	 */
 	public static ExtentReports getInstance() {
 		if (extent == null) {
 			dynamicHtmlReportPath = htmlReportPath();
@@ -25,7 +28,10 @@ public class ExtentManager {
 		return extent;
 	}
 
-
+	/**
+	 *
+	 * @return
+	 */
 	public static String htmlReportPath() {
 		String fileName = Constants.EXECUTION_REPORT_FILE_NAME + ".html";
 		reportFolderPath = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.FILE_SEPARATOR_KEY + Constants.EXECUTION_REPORT_GENERATING_DIR;
@@ -33,5 +39,4 @@ public class ExtentManager {
 		extent = new ExtentReports(reportFolderPath + Constants.FILE_SEPARATOR_KEY + fileName);
 		return (reportFolderPath + File.separator + fileName);
 	}
-
 }

@@ -195,7 +195,9 @@ public class ReportUtil extends ExtentManager {
 		}
 	}
 
-
+	/**
+	 *
+	 */
 	public static void markStart() {
 		if (test == null) {
 			test = report.startTest(BaseInit.testCaseId +
