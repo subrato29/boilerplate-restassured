@@ -10,9 +10,6 @@ import java.io.FileReader;
 
 public class JsonUtils extends BaseInit {
 
-    static final String TEST_DATA_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_DATA_DIR;
-    static final String TEST_CONTROLLER_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_CONTROLLER_DIR;
-
     /**
      * Based on jsonKey, json array object will be returned
      * @param jsonFileName
