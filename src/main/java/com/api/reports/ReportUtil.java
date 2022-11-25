@@ -18,7 +18,7 @@ public class ReportUtil extends ExtentManager {
 	public static String reportStepFailed(String comment) {
 		String reportStep = null;
 		try {
-			reportStep = "<font color='red' face='Cambria'><b>" + comment + "</b></font>";
+			reportStep = "<font color='red' face='Georgia'>" + comment + "</font>";
 		} catch (Throwable t) {
 			reportStep = null;
 		}
@@ -33,7 +33,7 @@ public class ReportUtil extends ExtentManager {
 	public static String reportStepPassed(String comment) {
 		String reportStep = null;
 		try {
-			reportStep = "<font color='black' face='Cambria'><b>" + comment + "</b></font>";
+			reportStep = "<font color='white' face='Georgia'>" + comment + "</font>";
 		} catch (Throwable t) {
 			reportStep = null;
 		}
@@ -47,7 +47,7 @@ public class ReportUtil extends ExtentManager {
 	 */
 	public static String reportStepInfo(String comment) {
 		try {
-			String reportStep = "<font color='blue' face='Cambria'><i>" + comment + "</i></font>";
+			String reportStep = "<font color='white' face='Georgia'><i>" + comment + "</i></font>";
 			return reportStep;
 		} catch (Throwable t) {
 			return null;
@@ -62,7 +62,7 @@ public class ReportUtil extends ExtentManager {
 	public static String reportStepWarning(String comment) {
 		String reportStep = null;
 		try {
-			reportStep = "<font color='orange' face='Cambria'><b>" + comment + "</b></font>";
+			reportStep = "<font color='orange' face='Georgia'>" + comment + "</font>";
 		} catch (Throwable t) {
 			reportStep = null;
 		}
@@ -76,7 +76,7 @@ public class ReportUtil extends ExtentManager {
 	 */
 	public static String reportStepSkip(String comment) {
 		try {
-			String reportStep = "<font color='sky blue' face='Cambria'><b>" + comment + "</b></font>";
+			String reportStep = "<font color='sky blue' face='Georgia'>" + comment + "</font>";
 			return reportStep;
 		} catch (Throwable t) {
 			return null;
