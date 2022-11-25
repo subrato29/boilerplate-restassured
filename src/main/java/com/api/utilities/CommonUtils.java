@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import com.api.reports.ExtentManager;
 import com.api.support.Constants;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.apache.commons.io.FileUtils;
 
 import java.security.SecureRandom;
