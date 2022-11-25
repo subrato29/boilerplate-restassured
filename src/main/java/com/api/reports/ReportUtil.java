@@ -10,6 +10,11 @@ public class ReportUtil extends ExtentManager {
 	static int countOfCallingEndTest = 0;
 	static int countOfCallingStartTest = 0;
 
+	/**
+	 *
+	 * @param comment
+	 * @return
+	 */
 	public static String reportStepFailed(String comment) {
 		String reportStep = null;
 		try {
@@ -20,7 +25,11 @@ public class ReportUtil extends ExtentManager {
 		return reportStep;
 	}
 
-
+	/**
+	 *
+	 * @param comment
+	 * @return
+	 */
 	public static String reportStepPassed(String comment) {
 		String reportStep = null;
 		try {
@@ -31,7 +40,11 @@ public class ReportUtil extends ExtentManager {
 		return reportStep;
 	}
 
-
+	/**
+	 *
+	 * @param comment
+	 * @return
+	 */
 	public static String reportStepInfo(String comment) {
 		try {
 			String reportStep = "<font color='blue' face='Cambria'><i>" + comment + "</i></font>";
@@ -41,7 +54,11 @@ public class ReportUtil extends ExtentManager {
 		}
 	}
 
-
+	/**
+	 *
+	 * @param comment
+	 * @return
+	 */
 	public static String reportStepWarning(String comment) {
 		String reportStep = null;
 		try {
@@ -52,7 +69,11 @@ public class ReportUtil extends ExtentManager {
 		return reportStep;
 	}
 
-
+	/**
+	 *
+	 * @param comment
+	 * @return
+	 */
 	public static String reportStepSkip(String comment) {
 		try {
 			String reportStep = "<font color='sky blue' face='Cambria'><b>" + comment + "</b></font>";
@@ -62,7 +83,10 @@ public class ReportUtil extends ExtentManager {
 		}
 	}
 
-
+	/**
+	 *
+	 * @param comment
+	 */
 	public static void markPassed(String comment) {
 		if (BaseInit.continueRun) {
 			if (test == null) {
@@ -80,6 +104,10 @@ public class ReportUtil extends ExtentManager {
 		}
 	}
 
+	/**
+	 *
+	 * @param comment
+	 */
 	public static void markFailed(String comment) {
 		if (BaseInit.continueRun) {
 			if (test == null) {
@@ -97,7 +125,10 @@ public class ReportUtil extends ExtentManager {
 		}
 	}
 
-
+	/**
+	 *
+	 * @param comment
+	 */
 	public static void markInfo(String comment) {
 		if (test == null) {
 			test = report.startTest(BaseInit.testCaseId +
@@ -124,7 +155,10 @@ public class ReportUtil extends ExtentManager {
 		}
 	}
 
-
+	/**
+	 *
+	 * @param comment
+	 */
 	public static void markWarning(String comment) {
 		if (BaseInit.continueRun) {
 			if (test == null) {
@@ -142,7 +176,10 @@ public class ReportUtil extends ExtentManager {
 		}
 	}
 
-
+	/**
+	 *
+	 * @param comment
+	 */
 	public static void markSkip(String comment) {
 		if (test == null) {
 			test = report.startTest(BaseInit.testCaseId +
@@ -173,5 +210,4 @@ public class ReportUtil extends ExtentManager {
 			}
 		}
 	}
-
 }
