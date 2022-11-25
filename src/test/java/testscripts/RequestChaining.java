@@ -29,7 +29,7 @@ public class RequestChaining extends RestClient {
                 email = jsonPath.get("email");
                 name = jsonPath.get("name");
                 Logging.info("CREATE user is successful with email: " + email);
-                ReportUtil.markFailed("CREATE user is successful with email: " + email);
+                ReportUtil.markPassed("CREATE user is successful with email: " + email);
             } else {
                 ReportUtil.markFailed("CREATE user is not successful");
             }
