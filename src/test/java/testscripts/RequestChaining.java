@@ -18,7 +18,7 @@ public class RequestChaining extends RestClient {
     JSONObject requestBody;
 
     @Test (priority = 1)
-    public void post() {
+    public void tc001_post() {
         String tcId = "TC001";
         if (isRunnable(tcId)) {
             requestBody = ApiUtils.generateRequestBody();
@@ -29,7 +29,7 @@ public class RequestChaining extends RestClient {
                 email = jsonPath.get("email");
                 name = jsonPath.get("name");
                 Logging.info("CREATE user is successful with email: " + email);
-                ReportUtil.markPassed("CREATE user is successful with email: " + email);
+                ReportUtil.markFailed("CREATE user is successful with email: " + email);
             } else {
                 ReportUtil.markFailed("CREATE user is not successful");
             }
@@ -37,7 +37,7 @@ public class RequestChaining extends RestClient {
     }
 
     @Test (priority = 2)
-    public void put() {
+    public void tc002_put() {
         String tcId = "TC002";
         if (isRunnable(tcId)) {
             endpoint = endpoint + Constants.FRONT_SLASH + id;
@@ -54,7 +54,7 @@ public class RequestChaining extends RestClient {
     }
 
     @Test (priority = 3)
-    public void get() {
+    public void tc003_get() {
         String tcId = "TC003";
         if (isRunnable(tcId)) {
             endpoint = endpoint + Constants.FRONT_SLASH + id;
@@ -68,7 +68,7 @@ public class RequestChaining extends RestClient {
     }
 
     @Test (priority = 4)
-    public void delete() {
+    public void tc004_delete() {
         String tcId = "TC004";
         if (isRunnable(tcId)) {
             endpoint = endpoint + Constants.FRONT_SLASH + id;
