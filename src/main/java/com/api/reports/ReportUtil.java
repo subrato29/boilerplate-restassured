@@ -90,8 +90,7 @@ public class ReportUtil extends ExtentManager {
 	public static void markPassed(String comment) {
 		if (BaseInit.continueRun) {
 			if (test == null) {
-				test = report.startTest(BaseInit.testCaseId +
-						": " + BaseInit.testCaseName);
+				test = report.startTest(displayReportPane ());
 			}
 			try {
 				test.log(LogStatus.PASS, reportStepPassed(comment));
@@ -111,8 +110,7 @@ public class ReportUtil extends ExtentManager {
 	public static void markFailed(String comment) {
 		if (BaseInit.continueRun) {
 			if (test == null) {
-				test = report.startTest(BaseInit.testCaseId +
-						": " + BaseInit.testCaseName);
+				test = report.startTest(displayReportPane ());
 			}
 			try {
 				test.log(LogStatus.FAIL, reportStepFailed(comment));
@@ -131,8 +129,7 @@ public class ReportUtil extends ExtentManager {
 	 */
 	public static void markInfo(String comment) {
 		if (test == null) {
-			test = report.startTest(BaseInit.testCaseId +
-					": " + BaseInit.testCaseName);
+			test = report.startTest(displayReportPane ());
 		}
 		try {
 			if (comment.toUpperCase().equals("START")) {
@@ -162,8 +159,7 @@ public class ReportUtil extends ExtentManager {
 	public static void markWarning(String comment) {
 		if (BaseInit.continueRun) {
 			if (test == null) {
-				test = report.startTest(BaseInit.testCaseId +
-						": " + BaseInit.testCaseName);
+				test = report.startTest(displayReportPane ());
 			}
 			try {
 				test.log(LogStatus.WARNING, reportStepWarning(comment));
@@ -182,8 +178,7 @@ public class ReportUtil extends ExtentManager {
 	 */
 	public static void markSkip(String comment) {
 		if (test == null) {
-			test = report.startTest(BaseInit.testCaseId +
-					": " + BaseInit.testCaseName);
+			test = report.startTest(displayReportPane ());
 		}
 		try {
 			test.log(LogStatus.SKIP, reportStepSkip(comment));
@@ -200,8 +195,7 @@ public class ReportUtil extends ExtentManager {
 	 */
 	public static void markStart() {
 		if (test == null) {
-			test = report.startTest(BaseInit.testCaseId +
-					": " + BaseInit.testCaseName);
+			test = report.startTest(displayReportPane ());
 		}
 		try {
 			test = null;
@@ -211,5 +205,13 @@ public class ReportUtil extends ExtentManager {
 				report.flush();
 			}
 		}
+	}
+
+	/**
+	 *
+	 * @return
+	 */
+	public static String displayReportPane () {
+		return BaseInit.testCaseId + ": " + BaseInit.testCaseName;
 	}
 }
