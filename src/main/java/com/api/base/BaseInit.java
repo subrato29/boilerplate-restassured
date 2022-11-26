@@ -65,6 +65,4 @@ public class BaseInit {
 	public void tearDownSuite() throws IOException {
 		Zip.zipFile();
 	}
-
-
 }
