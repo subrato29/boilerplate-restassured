@@ -62,7 +62,7 @@ public class BaseInit {
 	}
 
 	@AfterSuite
-	public void tearDownSuite() throws IOException {;
+	public void tearDownSuite() throws IOException {
 		Zip.zipFile();
 	}
 
