@@ -7,6 +7,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class JsonUtils extends BaseInit {
 
@@ -159,5 +161,31 @@ public class JsonUtils extends BaseInit {
             }
         }
         return false;
+    }
+
+    /**
+     *
+     * @param jsonFileName
+     * @throws IOException
+     */
+    public static String createJsonFileInsideTestDataDir(String jsonFileName) throws IOException {
+        return CommonUtils.createFile(TEST_CONTROLLER_DIR + jsonFileName + ".json");
+    }
+
+    /**
+     *
+     * @param jsonFileName
+     * @param jsonObject
+     */
+    public static void writeInJsonFileInsideTestDataDir(String jsonFileName, JSONObject jsonObject) throws IOException {
+        FileWriter file = new FileWriter(createJsonFileInsideTestDataDir(jsonFileName));
+        try {
+            file.write("[" + jsonObject.toJSONString() + "]");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            file.close();
+        }
     }
 }
