@@ -17,8 +17,8 @@ public class BaseInit {
 	public static boolean continueRun = false;
 	public static String endpoint = null;
 	public static final String BASE_URL = CommonUtils.getProperty("BASE_URL");
-	public static final String TEST_DATA_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_DATA_DIR;
-	public static final String TEST_CONTROLLER_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_CONTROLLER_DIR;
+	protected static final String TEST_DATA_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_DATA_DIR;
+	protected static final String TEST_CONTROLLER_DIR = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.TEST_CONTROLLER_DIR;
 
 	/**
 	 *
