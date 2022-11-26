@@ -7,10 +7,15 @@
 package com.api.utilities;
 import java.io.File;
 import java.io.FileInputStream;
+
+import com.api.base.BaseInit;
 import com.api.reports.ExtentManager;
 import com.api.support.Constants;
 import org.apache.commons.io.FileUtils;
+import org.json.simple.JSONObject;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.*;
 
@@ -85,5 +90,42 @@ public class CommonUtils {
 		File dir = new File(dirPath);
 		dir.mkdir();
 		return dirPath;
+	}
+
+	/**
+	 *
+	 * @param path
+	 * @throws IOException
+	 */
+	public static String createFile (String path) throws IOException {
+		File file = new File(path);
+		file.createNewFile();
+		return path;
+	}
+
+	/**
+	 *
+	 * @param jsonFileName
+	 * @throws IOException
+	 */
+	public static String createJsonFileInsideTestDataDir (String jsonFileName) throws IOException {
+		return createFile (BaseInit.TEST_CONTROLLER_DIR + jsonFileName + ".json");
+	}
+
+	/**
+	 *
+	 * @param jsonFileName
+	 * @param jsonObject
+	 */
+	public static void writeInJsonFile (String jsonFileName, JSONObject jsonObject) throws IOException {
+		FileWriter file = new FileWriter(createJsonFileInsideTestDataDir(jsonFileName));
+		try {
+			file.write("[" + jsonObject.toJSONString() + "]");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			file.close();
+		}
 	}
 }
