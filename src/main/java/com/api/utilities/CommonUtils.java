@@ -93,4 +93,12 @@ public class CommonUtils {
 		file.createNewFile();
 		return path;
 	}
+
+	/**
+	 *
+	 * @return
+	 */
+	public static String generateEnterpriseId () {
+		return UUID.randomUUID().toString();
+	}
 }
