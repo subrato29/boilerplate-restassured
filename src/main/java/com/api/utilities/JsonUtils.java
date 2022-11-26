@@ -177,7 +177,7 @@ public class JsonUtils extends BaseInit {
      * @param jsonFileName
      * @param jsonObject
      */
-    public static void writeInJsonFileInsideTestDataDir(String jsonFileName, JSONObject jsonObject) throws IOException {
+    public static void writeToJsonFileInsideTestDataDir(String jsonFileName, JSONObject jsonObject) throws IOException {
         FileWriter file = new FileWriter(createJsonFileInsideTestDataDir(jsonFileName));
         try {
             file.write("[" + jsonObject.toJSONString() + "]");
