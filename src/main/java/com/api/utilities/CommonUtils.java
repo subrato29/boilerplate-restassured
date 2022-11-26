@@ -1,9 +1,3 @@
-/**
- * This class  contains Utility methods specific to the framework architechture and
- * will be used to perform various actions across the framework
- *
- * @author Subrato
- */
 package com.api.utilities;
 import java.io.File;
 import java.io.FileInputStream;
@@ -62,9 +56,9 @@ public class CommonUtils {
 		String CHARACTER_SET = "0123456789abcdefghijklmnopqrstuvwxyz";
 		SecureRandom random = new SecureRandom();
 		StringBuffer buff = new StringBuffer(len);
-		for(int i = 0; i < len; i++) {
+		for (int i = 0; i < len; i++) {
 			int offset = random.nextInt(CHARACTER_SET.length());
-			buff.append(CHARACTER_SET.substring(offset,offset+1));
+			buff.append(CHARACTER_SET.substring(offset, offset + 1));
 		}
 		return buff.toString();
 	}
@@ -73,7 +67,7 @@ public class CommonUtils {
 	 *
 	 * @param dir
 	 */
-	public static void deleteDirectory (String dir) {
+	public static void deleteDirectory(String dir) {
 		try {
 			FileUtils.deleteDirectory(new File(dir));
 		} catch (Throwable t) {
@@ -86,7 +80,7 @@ public class CommonUtils {
 	 * @param dirPath
 	 * @return
 	 */
-	public static String generateDirectory (String dirPath) {
+	public static String generateDirectory(String dirPath) {
 		File dir = new File(dirPath);
 		dir.mkdir();
 		return dirPath;
@@ -97,7 +91,7 @@ public class CommonUtils {
 	 * @param path
 	 * @throws IOException
 	 */
-	public static String createFile (String path) throws IOException {
+	public static String createFile(String path) throws IOException {
 		File file = new File(path);
 		file.createNewFile();
 		return path;
@@ -108,8 +102,8 @@ public class CommonUtils {
 	 * @param jsonFileName
 	 * @throws IOException
 	 */
-	public static String createJsonFileInsideTestDataDir (String jsonFileName) throws IOException {
-		return createFile (BaseInit.TEST_CONTROLLER_DIR + jsonFileName + ".json");
+	public static String createJsonFileInsideTestDataDir(String jsonFileName) throws IOException {
+		return createFile(BaseInit.TEST_CONTROLLER_DIR + jsonFileName + ".json");
 	}
 
 	/**
@@ -117,7 +111,7 @@ public class CommonUtils {
 	 * @param jsonFileName
 	 * @param jsonObject
 	 */
-	public static void writeInJsonFile (String jsonFileName, JSONObject jsonObject) throws IOException {
+	public static void writeInJsonFile(String jsonFileName, JSONObject jsonObject) throws IOException {
 		FileWriter file = new FileWriter(createJsonFileInsideTestDataDir(jsonFileName));
 		try {
 			file.write("[" + jsonObject.toJSONString() + "]");
