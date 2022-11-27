@@ -32,7 +32,7 @@ public class Constants {
 	public static final String TEST_CONTROLLER_DIR = "/src/main/resources/testController/";
 	public static final String TEST_DATA_DIR = "/src/main/resources/testData/";
 	public static final String CONTROLLER_DOT_JSON = "controller.json";
-	public static final String SUITE_RUN_CONFIG = "suiteRunConfig.json";
+	public static final String SUITE_RUN_CONFIG_DOT_JSON = "suiteRunConfig.json";
 	public static final String SUITE_RUN_MODE_KEY = "suiteRunMode";
 	public static final String TEST_CASE_RUN_MODE_KEY = "runmode";
 	public static final String SCENARIO_NAME_KEY = "scenario";

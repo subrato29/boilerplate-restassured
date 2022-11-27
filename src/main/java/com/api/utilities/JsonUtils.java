@@ -152,7 +152,7 @@ public class JsonUtils extends BaseInit {
      * @return
      */
     public static boolean getSuiteRunMode () {
-        String jsonFilePath = TEST_CONTROLLER_DIR + Constants.SUITE_RUN_CONFIG;
+        String jsonFilePath = TEST_CONTROLLER_DIR + Constants.SUITE_RUN_CONFIG_DOT_JSON;
         JSONArray runConfig = JsonUtils.getJsonBody(jsonFilePath);
         for (int i = 0; i < runConfig.size(); i++) {
             JSONObject jsonObject = (JSONObject) runConfig.get(i);
