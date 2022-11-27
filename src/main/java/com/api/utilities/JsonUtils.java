@@ -120,7 +120,7 @@ public class JsonUtils extends BaseInit {
      * @return
      */
     public static boolean getRunMode () {
-        return getControllerBooleanValueBasedOnKey (testCaseId, "runmode");
+        return getControllerBooleanValueBasedOnKey (testCaseId, Constants.TEST_CASE_RUN_MODE_KEY);
     }
 
     /**
@@ -128,7 +128,7 @@ public class JsonUtils extends BaseInit {
      * @return
      */
     public static String getScenarioName () {
-        return getControllerValueBasedOnKey (testCaseId, "scenario");
+        return getControllerValueBasedOnKey (testCaseId, Constants.SCENARIO_NAME_KEY);
     }
 
     /**
@@ -136,7 +136,7 @@ public class JsonUtils extends BaseInit {
      * @return
      */
     public static String getEndpoint () {
-        return getControllerValueBasedOnKey (testCaseId, "endpoint");
+        return getControllerValueBasedOnKey (testCaseId, Constants.ENDPOINT_KEY);
     }
 
     /**
@@ -144,7 +144,7 @@ public class JsonUtils extends BaseInit {
      * @return
      */
     public static String getRequestBodyFileName () {
-        return getControllerValueBasedOnKey (testCaseId, "requestBody");
+        return getControllerValueBasedOnKey (testCaseId, Constants.REQUEST_BODY_KEY);
     }
 
     /**
@@ -156,7 +156,7 @@ public class JsonUtils extends BaseInit {
         JSONArray runConfig = JsonUtils.getJsonBody(jsonFilePath);
         for (int i = 0; i < runConfig.size(); i++) {
             JSONObject jsonObject = (JSONObject) runConfig.get(i);
-            if (jsonObject.get("suiteRunMode").equals(true)) {
+            if (jsonObject.get(Constants.SUITE_RUN_MODE_KEY).equals(true)) {
                 return true;
             }
         }
