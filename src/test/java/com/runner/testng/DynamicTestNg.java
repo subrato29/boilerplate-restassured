@@ -24,12 +24,12 @@ public class DynamicTestNg {
 			files.add(Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.FILE_SEPARATOR_KEY + TESTNG_DOT_XML);
 
 			File file = new File(Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.FILE_SEPARATOR_KEY +
-					"src" + Constants.FILE_SEPARATOR_KEY + "test" + Constants.FILE_SEPARATOR_KEY + "java" + Constants.FILE_SEPARATOR_KEY + "testscripts");
+					"src" + Constants.FILE_SEPARATOR_KEY + "test" + Constants.FILE_SEPARATOR_KEY + "java" + Constants.FILE_SEPARATOR_KEY + "scenarios");
 			String[] fileList = file.list();
 			for (String name: fileList) {
 				testName = name.split(".java")[0];
 				if (!testName.equals(".DS_Store")) {
-					classList.add(new XmlClass("testscripts." + testName));
+					classList.add(new XmlClass("scenarios" + Constants.DOT_STRING + testName));
 					test.setName("Test");
 					test.setThreadCount(5);
 					test.setXmlClasses(classList);

@@ -1,4 +1,4 @@
-package testscripts;
+package scenarios;
 
 import com.api.console.Logging;
 import com.api.lib.ApiUtils;

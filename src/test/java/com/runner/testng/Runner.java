@@ -7,6 +7,7 @@ import org.testng.TestNG;
 import com.beust.jcommander.internal.Lists;
 
 public class Runner extends DynamicTestNg{
+
     /**
      * This class is responsible for running testng.xml
      * @param args
