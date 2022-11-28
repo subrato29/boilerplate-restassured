@@ -18,6 +18,7 @@ public class Constants {
 	public static final String COMPARE_LEGACY_API_CONFIG_KEY = "compareLegacyAPI";
 	public static final String COMMA_STRING = ",";
 	public static final String COLON_STRING = ":";
+	public static final String COLON_STRING_WITH_ONE_SPACE = ": ";
 	public static final String UNDERSCORE = "_";
 	public static final String V2_VERSION = "v2";
 	public static final String V1_VERSION = "v1";

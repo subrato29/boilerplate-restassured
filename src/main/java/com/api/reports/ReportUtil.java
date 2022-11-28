@@ -1,5 +1,6 @@
 package com.api.reports;
 
+import com.api.support.Constants;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -212,6 +213,6 @@ public class ReportUtil extends ExtentManager {
 	 * @return
 	 */
 	public static String displayReportPane () {
-		return testCaseId + ": " + testCaseName;
+		return testCaseId + Constants.COLON_STRING_WITH_ONE_SPACE + testCaseName;
 	}
 }
