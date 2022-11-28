@@ -1,5 +1,5 @@
 package com.api.reports;
-import com.api.base.BaseInit;
+
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -88,7 +88,7 @@ public class ReportUtil extends ExtentManager {
 	 * @param comment
 	 */
 	public static void markPassed(String comment) {
-		if (BaseInit.continueRun) {
+		if (continueRun) {
 			if (test == null) {
 				test = report.startTest(displayReportPane ());
 			}
@@ -108,7 +108,7 @@ public class ReportUtil extends ExtentManager {
 	 * @param comment
 	 */
 	public static void markFailed(String comment) {
-		if (BaseInit.continueRun) {
+		if (continueRun) {
 			if (test == null) {
 				test = report.startTest(displayReportPane ());
 			}
@@ -157,7 +157,7 @@ public class ReportUtil extends ExtentManager {
 	 * @param comment
 	 */
 	public static void markWarning(String comment) {
-		if (BaseInit.continueRun) {
+		if (continueRun) {
 			if (test == null) {
 				test = report.startTest(displayReportPane ());
 			}
@@ -212,6 +212,6 @@ public class ReportUtil extends ExtentManager {
 	 * @return
 	 */
 	public static String displayReportPane () {
-		return BaseInit.testCaseId + ": " + BaseInit.testCaseName;
+		return testCaseId + ": " + testCaseName;
 	}
 }

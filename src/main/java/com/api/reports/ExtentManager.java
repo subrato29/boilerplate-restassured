@@ -1,10 +1,12 @@
 package com.api.reports;
 import java.io.File;
+
+import com.api.base.BaseInit;
 import com.api.utilities.CommonUtils;
 import com.api.support.Constants;
 import com.relevantcodes.extentreports.ExtentReports;
 
-public class ExtentManager {
+public class ExtentManager extends BaseInit {
 	private static ExtentReports extent;
 	public static String dynamicHtmlReportPath;
 	public static String reportFolderPath = null;
