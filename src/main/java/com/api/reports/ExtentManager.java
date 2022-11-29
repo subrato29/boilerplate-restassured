@@ -38,7 +38,8 @@ public class ExtentManager extends BaseInit {
 		String fileName = Constants.EXECUTION_REPORT_FILE_NAME + ".html";
 		reportFolderPath = Constants.FRAMEWORK_ROOT_DIRECTORY + Constants.FILE_SEPARATOR_KEY + Constants.EXECUTION_REPORT_GENERATING_DIR;
 		CommonUtils.generateDirectory(reportFolderPath);
-		extent = new ExtentReports(reportFolderPath + Constants.FILE_SEPARATOR_KEY + fileName);
-		return (reportFolderPath + File.separator + fileName);
+		String htmlReportPath = reportFolderPath + Constants.FILE_SEPARATOR_KEY + fileName;
+		extent = new ExtentReports(htmlReportPath);
+		return (htmlReportPath);
 	}
 }
