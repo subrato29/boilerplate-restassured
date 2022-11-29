@@ -40,6 +40,6 @@ public class ExtentManager extends BaseInit {
 		CommonUtils.generateDirectory(reportFolderPath);
 		String htmlReportPath = reportFolderPath + Constants.FILE_SEPARATOR_KEY + fileName;
 		extent = new ExtentReports(htmlReportPath);
-		return (htmlReportPath);
+		return htmlReportPath;
 	}
 }
