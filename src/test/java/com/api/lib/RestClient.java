@@ -20,7 +20,7 @@ public class RestClient extends AuthFactory {
 	 */
 	public static Response get(String endpoint) {
 		return getHeader()
-				.get(endpoint);
+			.get(endpoint);
 	}
 
 	/**
@@ -29,7 +29,7 @@ public class RestClient extends AuthFactory {
 	 */
 	public static RequestSpecification getHeader() {
 		return RestAssured.given()
-				.header(AUTHORIZATION, BEARER_TOKEN);
+			.header(AUTHORIZATION, BEARER_TOKEN);
 	}
 
 	public static RequestSpecification request() {
@@ -46,9 +46,9 @@ public class RestClient extends AuthFactory {
 	 */
 	public static Response post(String endpoint, JSONObject json) {
 		return request()
-				.body(json)
-				.when()
-				.post(endpoint);
+			.body(json)
+			.when()
+			.post(endpoint);
 	}
 
 	/**
@@ -59,9 +59,9 @@ public class RestClient extends AuthFactory {
 	 */
 	public static Response put(String endpoint, JSONObject json) {
 		return request()
-				.body(json)
-				.when()
-				.put(endpoint);
+			.body(json)
+			.when()
+			.put(endpoint);
 	}
 
 	/**
@@ -71,8 +71,8 @@ public class RestClient extends AuthFactory {
 	 */
 	public static Response delete(String endpoint) {
 		return request()
-				.when()
-				.delete(endpoint);
+			.when()
+			.delete(endpoint);
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class RestClient extends AuthFactory {
 	 */
 	public static Response patch(String endpoint, JSONObject json) {
 		return request()
-				.body(json)
-				.when()
-				.patch(endpoint);
+			.body(json)
+			.when()
+			.patch(endpoint);
 	}
 }
