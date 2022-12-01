@@ -17,7 +17,7 @@ public class RestClient extends AuthFactory {
 	 * @return
 	 */
 	public static Response get(String endpoint) {
-		return getHeader()
+		return requestHeader()
 			.get(endpoint);
 	}
 
@@ -25,7 +25,7 @@ public class RestClient extends AuthFactory {
 	 *
 	 * @return
 	 */
-	public static RequestSpecification getHeader() {
+	public static RequestSpecification requestHeader() {
 		return RestAssured.given()
 			.header(AUTHORIZATION, BEARER_TOKEN);
 	}
@@ -35,7 +35,7 @@ public class RestClient extends AuthFactory {
 	 * @return
 	 */
 	public static RequestSpecification request() {
-		return getHeader()
+		return requestHeader()
 			.accept(APPLICATION_JSON_CONTENT_TYPE)
 			.contentType(APPLICATION_JSON_CONTENT_TYPE);
 	}
