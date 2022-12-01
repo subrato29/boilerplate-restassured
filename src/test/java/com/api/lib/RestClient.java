@@ -43,12 +43,12 @@ public class RestClient extends AuthFactory {
 	/**
 	 *
 	 * @param endpoint
-	 * @param json
+	 * @param requestBody
 	 * @return
 	 */
-	public static Response post(String endpoint, JSONObject json) {
+	public static Response post(String endpoint, JSONObject requestBody) {
 		return request()
-			.body(json)
+			.body(requestBody)
 			.when()
 			.post(endpoint);
 	}
@@ -56,12 +56,12 @@ public class RestClient extends AuthFactory {
 	/**
 	 *
 	 * @param endpoint
-	 * @param json
+	 * @param requestBody
 	 * @return
 	 */
-	public static Response put(String endpoint, JSONObject json) {
+	public static Response put(String endpoint, JSONObject requestBody) {
 		return request()
-			.body(json)
+			.body(requestBody)
 			.when()
 			.put(endpoint);
 	}
@@ -80,12 +80,12 @@ public class RestClient extends AuthFactory {
 	/**
 	 *
 	 * @param endpoint
-	 * @param json
+	 * @param requestBody
 	 * @return
 	 */
-	public static Response patch(String endpoint, JSONObject json) {
+	public static Response patch(String endpoint, JSONObject requestBody) {
 		return request()
-			.body(json)
+			.body(requestBody)
 			.when()
 			.patch(endpoint);
 	}
