@@ -9,8 +9,9 @@ import io.restassured.specification.RequestSpecification;
 
 public class RestClient extends AuthFactory {
 
-	static final String APPLICATION_JSON_CONTENT_TYPE = "application/json";
-	static final String AUTHORIZATION = "Authorization";
+	private static final String APPLICATION_JSON_CONTENT_TYPE = "application/json";
+	private static final String AUTHORIZATION = "Authorization";
+	private static final String BEARER_TOKEN = "Bearer " + TOKEN;
 
 	/**
 	 *
@@ -21,7 +22,7 @@ public class RestClient extends AuthFactory {
 		try {
 			RequestSpecification request = RestAssured.given();
 			Response response = request
-					.header(AUTHORIZATION, "Bearer " + BEARER_TOKEN)
+					.header(AUTHORIZATION, BEARER_TOKEN)
 					.get(endpoint);
 			return response;
 		} catch (Throwable t) {
@@ -37,7 +38,7 @@ public class RestClient extends AuthFactory {
 	 */
 	public static RequestSpecification request() {
 		RequestSpecification request = RestAssured.given();
-		return request.header(AUTHORIZATION, "Bearer " + BEARER_TOKEN);
+		return request.header(AUTHORIZATION, BEARER_TOKEN);
 	}
 
 	/**
@@ -49,7 +50,7 @@ public class RestClient extends AuthFactory {
 	public static Response post(String endpoint, JSONObject json) {
 		try {
 			Response response = given()
-					.header(AUTHORIZATION, "Bearer " + BEARER_TOKEN)
+					.header(AUTHORIZATION, BEARER_TOKEN)
 					.accept(APPLICATION_JSON_CONTENT_TYPE)
 					.contentType(APPLICATION_JSON_CONTENT_TYPE)
 					.body(json)
@@ -72,7 +73,7 @@ public class RestClient extends AuthFactory {
 	public static Response put(String endpoint, JSONObject json) {
 		try {
 			Response response = given()
-					.header("Authorization", "Bearer " + BEARER_TOKEN)
+					.header(AUTHORIZATION, BEARER_TOKEN)
 					.accept(APPLICATION_JSON_CONTENT_TYPE)
 					.contentType(APPLICATION_JSON_CONTENT_TYPE)
 					.body(json)
@@ -94,7 +95,7 @@ public class RestClient extends AuthFactory {
 	public static Response delete(String endpoint) {
 		try {
 			Response response = given()
-					.header(AUTHORIZATION, "Bearer " + BEARER_TOKEN)
+					.header(AUTHORIZATION, BEARER_TOKEN)
 					.accept(APPLICATION_JSON_CONTENT_TYPE)
 					.contentType(APPLICATION_JSON_CONTENT_TYPE)
 					.when()
@@ -116,7 +117,7 @@ public class RestClient extends AuthFactory {
 	public static Response patch(String endpoint, JSONObject json) {
 		try {
 			Response response = given()
-					.header(AUTHORIZATION, "Bearer " + BEARER_TOKEN)
+					.header(AUTHORIZATION, BEARER_TOKEN)
 					.accept(APPLICATION_JSON_CONTENT_TYPE)
 					.contentType(APPLICATION_JSON_CONTENT_TYPE)
 					.body(json)
