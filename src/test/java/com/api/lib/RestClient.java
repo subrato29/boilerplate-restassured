@@ -32,6 +32,10 @@ public class RestClient extends AuthFactory {
 			.header(AUTHORIZATION, BEARER_TOKEN);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public static RequestSpecification request() {
 		return getHeader()
 			.accept(APPLICATION_JSON_CONTENT_TYPE)
