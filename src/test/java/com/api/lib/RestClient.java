@@ -10,7 +10,7 @@ public class RestClient extends AuthFactory {
 
 	private static final String APPLICATION_JSON_CONTENT_TYPE = "application/json";
 	private static final String AUTHORIZATION = "Authorization";
-	private static final String BEARER_TOKEN = "Bearer " + TOKEN;
+	private static final String BEARER_TOKEN = "Bearer " + AUTH_TOKEN;
 
 	/**
 	 *
