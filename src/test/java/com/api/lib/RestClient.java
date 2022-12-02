@@ -1,5 +1,6 @@
 package com.api.lib;
 
+import com.api.reports.ReportUtil;
 import org.json.simple.JSONObject;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -17,8 +18,14 @@ public class RestClient extends AuthFactory {
 	 * @return
 	 */
 	public static Response get(String endpoint) {
-		return requestHeader()
-			.get(endpoint);
+		try {
+			return requestHeader()
+					.get(endpoint);
+		} catch (Throwable t) {
+			ReportUtil.markFailed("GET call is not successful");
+			t.printStackTrace();
+		}
+		return null;
 	}
 
 	/**
@@ -47,10 +54,16 @@ public class RestClient extends AuthFactory {
 	 * @return
 	 */
 	public static Response post(String endpoint, JSONObject requestBody) {
-		return request()
-			.body(requestBody)
-			.when()
-			.post(endpoint);
+		try {
+			return request()
+					.body(requestBody)
+					.when()
+					.post(endpoint);
+		} catch (Throwable t) {
+			ReportUtil.markFailed("POST call is not successful");
+			t.printStackTrace();
+		}
+		return null;
 	}
 
 	/**
@@ -60,10 +73,16 @@ public class RestClient extends AuthFactory {
 	 * @return
 	 */
 	public static Response put(String endpoint, JSONObject requestBody) {
-		return request()
-			.body(requestBody)
-			.when()
-			.put(endpoint);
+		try {
+			return request()
+					.body(requestBody)
+					.when()
+					.put(endpoint);
+		} catch (Throwable t) {
+			ReportUtil.markFailed("PUT call is not successful");
+			t.printStackTrace();
+		}
+		return null;
 	}
 
 	/**
@@ -72,9 +91,15 @@ public class RestClient extends AuthFactory {
 	 * @return
 	 */
 	public static Response delete(String endpoint) {
-		return request()
-			.when()
-			.delete(endpoint);
+		try {
+			return request()
+					.when()
+					.delete(endpoint);
+		} catch (Throwable t) {
+			ReportUtil.markFailed("DELETE call is not successful");
+			t.printStackTrace();
+		}
+		return null;
 	}
 
 	/**
@@ -84,9 +109,15 @@ public class RestClient extends AuthFactory {
 	 * @return
 	 */
 	public static Response patch(String endpoint, JSONObject requestBody) {
-		return request()
-			.body(requestBody)
-			.when()
-			.patch(endpoint);
+		try {
+			return request()
+					.body(requestBody)
+					.when()
+					.patch(endpoint);
+		} catch (Throwable t) {
+			ReportUtil.markFailed("PATCH call is not successful");
+			t.printStackTrace();
+		}
+		return null;
 	}
 }
